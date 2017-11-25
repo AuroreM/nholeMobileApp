@@ -1,4 +1,6 @@
+// @flow
+
 import { AppRegistry } from 'react-native';
-import App from './src/App';
+import App from 'nholeMobileApp/src/App';
 
 AppRegistry.registerComponent('nholeMobileApp', () => App);
