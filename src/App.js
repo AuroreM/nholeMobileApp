@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from './modules/reducers';
-import RootNavigation from './RootNavigation';
+import RootNavigator from './RootNavigation';
 import UserSaga from './modules/User';
 
 const sagaMiddleWare = createSagaMiddleware();
@@ -23,7 +23,7 @@ export default class App extends Component<void, void> {
   render() {
     return (
       <Provider store={store}>
-        <RootNavigation />
+        <RootNavigator />
       </Provider>
     );
   }

@@ -1,10 +1,13 @@
 // @flow
 
-import { StackNavigator } from 'react-navigation';
+import React, { Component } from 'react';
+import { BackHandler } from 'react-native';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { connect } from 'react-redux';
 
 import * as Pages from 'nholeMobileApp/src/pages';
 
-export default StackNavigator(
+export const Stack = StackNavigator(
   {
     login: {
       screen: Pages.Login,
@@ -12,8 +15,40 @@ export default StackNavigator(
     signup: {
       screen: Pages.Signup,
     },
+    message: {
+      screen: Pages.Message,
+    },
   },
   {
     initialRouteName: 'login',
   }
 );
+
+class StackNavigation extends Component<PropsType, void> {
+  constructor(props) {
+    super(props);
+    BackHandler.addEventListener('hardwareBackPress', this.backAction);
+  }
+
+  backAction = () => this.props.navigation.goBack();
+
+  render() {
+    const { dispatch, navigation } = this.props;
+
+    return (
+      <Stack
+        navigation={addNavigationHelpers({
+          dispatch,
+          state: navigation,
+        })}
+      />
+    );
+  }
+}
+
+export default connect(state => ({ navigation: state.stack }))(StackNavigation);
+
+type PropsType = {
+  dispatch: Function,
+  navigation: Function,
+};

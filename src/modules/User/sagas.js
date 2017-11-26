@@ -1,4 +1,6 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
+import { NavigationActions } from 'react-navigation';
+
 import request from '../../utils/request';
 import { loginSuccess } from './actions';
 import { baseUrl } from '../../config';
@@ -26,6 +28,7 @@ export function* login(action) {
     email: action.payload.email,
     password: action.payload.password,
   });
+  yield put(NavigationActions.navigate({ routeName: 'message' }));
 }
 
 export function* signup(action) {
@@ -46,6 +49,7 @@ export function* signup(action) {
       email: action.payload.email,
       password: action.payload.password,
     });
+    yield put(NavigationActions.navigate({ routeName: 'message' }));
     // yield put(handleToastr('Votre compte a bien été créé.'));
   } catch (e) {
     console.warn(`Signup failure ${e}`);
