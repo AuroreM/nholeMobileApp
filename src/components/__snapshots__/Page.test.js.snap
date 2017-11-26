@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page /> renders correctly with navBar and margin 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+      },
+      Object {
+        "backgroundColor": "#fff",
+        "paddingHorizontal": 24,
+        "paddingTop": 16,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<Page /> renders correctly without navBar 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+      },
+      Object {
+        "backgroundColor": "#fff",
+        "paddingHorizontal": 24,
+        "paddingTop": 0,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<Page /> renders correctly without noMargin 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+      },
+      Object {
+        "backgroundColor": "#fff",
+        "paddingHorizontal": 0,
+        "paddingTop": 16,
+      },
+    ]
+  }
+/>
+`;

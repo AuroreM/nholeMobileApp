@@ -24,6 +24,7 @@
 ; deps errors
 
 .*/node_modules/react-navigation
+.*/node_modules/redux-saga-test-plan
 
 [include]
 
