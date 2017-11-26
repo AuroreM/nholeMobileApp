@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from 'react';
 import { Button } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
@@ -7,33 +5,30 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import { Page, TextField } from 'nholeMobileApp/src/components';
-import { login } from '../../modules/User';
+import { signup } from '../../modules/User/actions';
 
-class Login extends Component {
+class Signup extends Component {
   static navigationOptions = {
-    title: 'Login',
+    title: 'Signup',
   };
   props: PropsType;
-
-  onPress = () => {
-    this.props.navigation.navigate('signup');
-  };
 
   render() {
     return (
       <Page>
         <Field name="email" placeholder="Email" component={TextField} type="email" />
         <Field name="password" placeholder="Mot de passe" component={TextField} type="password" secureTextEntry />
-        <Button title="Login" onPress={this.props.handleSubmit} />
-        <Button title="Sign in" onPress={this.onPress} />
+        <Button title="Signup" onPress={this.props.handleSubmit} />
       </Page>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: ({ email, password }) => dispatch(login(email, password)),
+  onSubmit: ({ email, password }) => {
+    dispatch(signup(email, password));
+  },
 });
 
-const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'login' }));
-export default enhance(Login);
+const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'signup' }));
+export default enhance(Signup);

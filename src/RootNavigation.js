@@ -9,6 +9,9 @@ export default StackNavigator(
     login: {
       screen: Pages.Login,
     },
+    signup: {
+      screen: Pages.Signup,
+    },
   },
   {
     initialRouteName: 'login',

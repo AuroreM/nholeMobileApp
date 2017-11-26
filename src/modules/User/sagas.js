@@ -29,8 +29,33 @@ export function* login(action) {
   });
 }
 
+export function* signup(action) {
+  const requestURL = `${baseUrl()}/api/Users`;
+  const body = JSON.stringify({
+    email: action.payload.email,
+    password: action.payload.password,
+  });
+  try {
+    yield call(request, requestURL, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    yield call(loginCall, {
+      email: action.payload.email,
+      password: action.payload.password,
+    });
+    // yield put(handleToastr('Votre compte a bien été créé.'));
+  } catch (e) {
+    console.warn(`Signup failure ${e}`);
+  }
+}
+
 export function* UserSaga() {
   yield takeLatest('LOGIN', login);
+  yield takeLatest('SIGNUP', signup);
 }
 
 export default UserSaga;
