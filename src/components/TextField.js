@@ -25,7 +25,7 @@ const getStyles = () =>
   StyleSheet.create({
     textInput: {
       height: 42,
-      color: '#fff',
+      color: '#808080',
       fontSize: 20,
       paddingVertical: 10,
     },
