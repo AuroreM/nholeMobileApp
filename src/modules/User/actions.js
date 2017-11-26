@@ -7,8 +7,6 @@ export const login = (email: string, password: string): ActionType => ({
   },
 });
 
-export const loginSuccess = (): ActionType => ({ type: 'LOGIN_SUCCESS' });
-
 export const signup = (email: string, password: string): ActionType => ({
   type: 'SIGNUP',
   payload: {
@@ -22,7 +20,6 @@ type ActionType =
       type: 'LOGIN',
       payload: { email: string, password: string },
     |}
-  | {| type: 'LOGIN_SUCCESS' |}
   | {|
       type: 'SIGNUP',
       payload: { email: string, password: string },

@@ -14,8 +14,7 @@ export function* loginCall(params) {
         'Content-Type': 'application/json',
       },
     });
-    sessionStorage.setItem('jwtToken', JSON.stringify(response));
-    yield put(loginSuccess());
+    // sessionStorage.setItem('jwtToken', JSON.stringify(response));
   } catch (e) {
     // yield put(handleToastr("L'authentification a échoué, veuillez vérifier votre email et votre mot de passe"));
     console.warn(`Login failure ${e}`);
