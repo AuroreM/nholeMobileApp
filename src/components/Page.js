@@ -14,19 +14,22 @@ const styles = StyleSheet.create({
 
 export default (props: PropsType) => (
   <View
-    style={[styles.page, {
-      paddingTop: props.noNavBar ? 0 : theme.grid.x2,
-      paddingHorizontal: props.noMargin ? 0 : theme.grid.x3,
-      backgroundColor: props.backgroundColor,
-    }]}
+    style={[
+      styles.page,
+      {
+        paddingTop: props.noNavBar ? 0 : theme.grid.x2,
+        paddingHorizontal: props.noMargin ? 0 : theme.grid.x3,
+        backgroundColor: props.backgroundColor,
+      },
+    ]}
   >
     {props.children}
   </View>
 );
 
 type PropsType = {
-  children: React$Element<*> | React$Element<*>[],
-  noMargin: boolean,
-  noNavBar: boolean,
+  children: React$Element<*> | React$Element<*>[],
+  noMargin?: boolean,
+  noNavBar?: boolean,
   backgroundColor: string,
 };

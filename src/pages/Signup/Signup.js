@@ -15,7 +15,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <Page>
+      <Page backgroundColor={'#fff'}>
         <Field name="email" placeholder="Email" component={TextField} type="email" />
         <Field name="password" placeholder="Mot de passe" component={TextField} type="password" secureTextEntry />
         <Button title="Signup" onPress={this.props.handleSubmit} />

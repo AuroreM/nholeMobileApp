@@ -19,7 +19,7 @@ if (typeof composeWithDevToolsExtension === 'function') {
 const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
 sagaMiddleWare.run(UserSaga);
 
-export default class App extends Component {
+export default class App extends Component<void, void> {
   render() {
     return (
       <Provider store={store}>
