@@ -1,17 +1,18 @@
+// @flow
 import React, { Component } from 'react';
 import { Button } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
+import { connect, DispatchProp } from 'react-redux';
 import { compose } from 'recompose';
+import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page, TextField } from 'nholeMobileApp/src/components';
 import { signup } from '../../modules/User/actions';
 
-class Signup extends Component {
+class Signup extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = {
     title: 'Signup',
   };
-  props: PropsType;
 
   render() {
     return (
@@ -24,11 +25,15 @@ class Signup extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function): DispatchProp => ({
   onSubmit: ({ email, password }) => {
     dispatch(signup(email, password));
   },
 });
+
+type DispatchProps = {
+  onSubmit: Function,
+};
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'signup' }));
 export default enhance(Signup);

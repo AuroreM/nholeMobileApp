@@ -1,25 +1,33 @@
+// @flow
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-class TextField extends React.Component {
+class TextField extends React.Component<Props, void> {
   styles = getStyles();
 
   render() {
-    const { input, disabled, ...otherProps } = this.props;
+    const { input, disabled, placeholder, secureTextEntry, ...otherProps } = this.props;
     return (
       <TextInput
         ref="input"
         style={this.styles.textInput}
         editable={!disabled}
         underlineColorAndroid="transparent"
-        secureTextEntry={false}
+        secureTextEntry={secureTextEntry}
         {...input}
         value={this.props.input.value}
-        {...otherProps}
+        placeholder={placeholder}
       />
     );
   }
 }
+
+type Props = {
+  disabled?: boolean,
+  secureTextEntry?: boolean,
+  input: { value: string },
+  placeholder?: string,
+};
 
 const getStyles = () =>
   StyleSheet.create({

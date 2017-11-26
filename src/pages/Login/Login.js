@@ -10,7 +10,7 @@ import type { NavigationScreenProp } from 'react-navigation';
 import { Page, TextField } from 'nholeMobileApp/src/components';
 import { login } from '../../modules/User';
 
-class Login extends Component<Props, void> {
+class Login extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = {
     title: 'Login',
   };
@@ -31,12 +31,11 @@ class Login extends Component<Props, void> {
   }
 }
 
-type Props = {
-  handleSubmit: Function,
-  navigation: NavigationScreenProp,
+type DispatchProps = {
+  onSubmit: Function,
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
   onSubmit: ({ email, password }) => dispatch(login(email, password)),
 });
 
