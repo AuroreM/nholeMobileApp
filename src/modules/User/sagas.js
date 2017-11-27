@@ -4,6 +4,7 @@ import { NavigationActions } from 'react-navigation';
 import request from '../../utils/request';
 import { loginSuccess } from './actions';
 import { baseUrl } from '../../config';
+import AuthenticationManager from '../../utils/authenticationManager';
 // import { handleToastr } /from '../../modules/Toastr/actions';
 
 export function* loginCall(params) {
@@ -16,7 +17,7 @@ export function* loginCall(params) {
         'Content-Type': 'application/json',
       },
     });
-    // sessionStorage.setItem('jwtToken', JSON.stringify(response));
+    AuthenticationManager.set('jwtToken', JSON.stringify(response));
   } catch (e) {
     // yield put(handleToastr("L'authentification a échoué, veuillez vérifier votre email et votre mot de passe"));
     console.warn(`Login failure ${e}`);

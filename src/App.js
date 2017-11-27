@@ -7,7 +7,9 @@ import createSagaMiddleware from 'redux-saga';
 
 import reducers from './modules/reducers';
 import RootNavigator from './RootNavigation';
-import UserSaga from './modules/User';
+import AuthenticationTokenManager from './utils/authenticationManager';
+import { navigateTo } from './modules/Navigation';
+import rootSaga from './modules/sagas';
 
 const sagaMiddleWare = createSagaMiddleware();
 const enhancers = [];
@@ -17,9 +19,19 @@ if (typeof composeWithDevToolsExtension === 'function') {
   composeEnhancers = composeWithDevToolsExtension;
 }
 const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
-sagaMiddleWare.run(UserSaga);
+sagaMiddleWare.run(rootSaga);
 
 export default class App extends Component<void, void> {
+  redirectToMessageIfConnected = () => {
+    return AuthenticationTokenManager.get().then(token => {
+      if (token) {
+        store.dispatch(navigateTo('message'));
+      }
+    });
+  };
+  componentDidMount() {
+    this.redirectToMessageIfConnected();
+  }
   render() {
     return (
       <Provider store={store}>

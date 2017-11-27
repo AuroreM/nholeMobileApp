@@ -1,8 +1,9 @@
 import { testSaga } from 'redux-saga-test-plan';
 import { put, call } from 'redux-saga/effects';
+import { NavigationActions } from 'react-navigation';
+
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
-import { loginSuccess } from './actions';
 import { loginCall, login, signup } from './sagas';
 
 const params = {
@@ -23,24 +24,18 @@ describe('loginCall successfull', () => {
       })
     );
   });
-
-  it('should store the jwtToken in the sessionStorage and dispatch loginSuccess Action', () => {
-    global.sessionStorage = jest.fn();
-    let jwtToken = '';
-    global.sessionStorage.setItem = jest.fn(() => (jwtToken = 'token'));
-    expect(saga.next().value).toEqual(put(loginSuccess()));
-    expect(jwtToken).toEqual('token');
-  });
 });
 
 describe('login Saga successfull', () => {
   it('should call loginCall successfully', () => {
     testSaga(login, {
-      type: 'LOGIN',
       payload: params,
+      type: 'LOGIN',
     })
       .next()
       .call(loginCall, params)
+      .next()
+      .put(NavigationActions.navigate({ routeName: 'message' }))
       .next()
       .isDone();
   });
@@ -62,6 +57,8 @@ describe('signup Saga', () => {
       })
       .next()
       .call(loginCall, params)
+      .next()
+      .put(NavigationActions.navigate({ routeName: 'message' }))
       .next()
       .isDone();
   });
