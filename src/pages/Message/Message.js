@@ -11,6 +11,7 @@ import { sendMessage } from '../../modules/Message/actions';
 class Message extends Component<DispatchProps & NavigationScreenProp, StateType> {
   static navigationOptions = {
     title: 'Message',
+    headerLeft: null,
   };
   state = {
     slot: '',
