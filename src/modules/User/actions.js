@@ -22,7 +22,7 @@ export const setToken = (token: string): ActionType => ({
   },
 });
 
-type ActionType =
+export type ActionType =
   | {|
       type: 'LOGIN',
       payload: { email: string, password: string },

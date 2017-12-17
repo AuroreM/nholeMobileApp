@@ -1,3 +1,3 @@
 // @flow
-
-export const tokenSelector = state => state.user.token;
+import type { StateType } from '../reducers';
+export const tokenSelector = (state: StateType) => state.user.token;

@@ -6,38 +6,38 @@ export const getClients = (): ActionType => {
   };
 };
 
-export const getClientsSuccess = (clients): ActionType => {
+export const getClientsSuccess = (clients: any): ActionType => {
   return {
     type: 'GET_CLIENTS_SUCCESS',
-    clients,
+    payload: { clients },
   };
 };
 
-export const deleteClient = (clientId): ActionType => {
+export const deleteClient = (clientId: string): ActionType => {
   return {
     type: 'DELETE_CLIENT',
-    clientId,
+    payload: { clientId },
   };
 };
 
-export const updateClientsListAfterOneDeleted = (clientId): ActionType => {
+export const updateClientsListAfterOneDeleted = (clientId: string): ActionType => {
   return {
     type: 'UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED',
-    clientId,
+    payload: { clientId },
   };
 };
 
-type ActionType =
+export type ActionType =
   | {|
       type: 'GET_CLIENTS',
     |}
   | {|
       type: 'DELETE_CLIENT',
-      payload: { clientId: any },
+      payload: { clientId: string },
     |}
   | {|
       type: 'UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED',
-      payload: { clientId: any },
+      payload: { clientId: string },
     |}
   | {|
       type: 'GET_CLIENTS_SUCCESS',

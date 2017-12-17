@@ -24,8 +24,9 @@ sagaMiddleWare.run(rootSaga);
 
 export default class App extends Component<void, void> {
   redirectToMessageIfConnected = () =>
-    AuthenticationTokenManager.get('jwtToken').then(token => {
+    AuthenticationTokenManager.get().then(token => {
       if (token) {
+        // $FlowFixMe
         store.dispatch(setToken(JSON.parse(token).id));
         store.dispatch(navigateTo('message'));
       }

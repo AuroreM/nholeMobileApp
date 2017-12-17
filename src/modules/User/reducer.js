@@ -1,14 +1,20 @@
 // @flow
+import type { ActionType } from './actions';
 
-export default function(state = { token: '' }, action) {
+export type UserStateType = {|
+  token: string,
+|};
+
+const userReducer = (state: UserStateType = { token: '' }, action: ActionType): UserStateType => {
   switch (action.type) {
     default:
       break;
     case 'SET_TOKEN':
       return {
-        ...state,
         token: action.payload.token,
       };
   }
   return state;
-}
+};
+
+export default userReducer;
