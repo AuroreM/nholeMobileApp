@@ -9,6 +9,7 @@ import reducers from './modules/reducers';
 import RootNavigator from './RootNavigation';
 import AuthenticationTokenManager from './utils/authenticationManager';
 import { navigateTo } from './modules/Navigation';
+import { setToken } from './modules/User';
 import rootSaga from './modules/sagas';
 
 const sagaMiddleWare = createSagaMiddleware();
@@ -22,13 +23,13 @@ const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(sagaMid
 sagaMiddleWare.run(rootSaga);
 
 export default class App extends Component<void, void> {
-  redirectToMessageIfConnected = () => {
-    return AuthenticationTokenManager.get().then(token => {
+  redirectToMessageIfConnected = () =>
+    AuthenticationTokenManager.get('jwtToken').then(token => {
       if (token) {
+        store.dispatch(setToken(JSON.parse(token).id));
         store.dispatch(navigateTo('message'));
       }
     });
-  };
   componentDidMount() {
     this.redirectToMessageIfConnected();
   }

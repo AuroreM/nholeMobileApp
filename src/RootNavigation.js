@@ -18,6 +18,9 @@ export const Stack = StackNavigator(
     message: {
       screen: Pages.Message,
     },
+    clients: {
+      screen: Pages.ClientsList,
+    },
   },
   {
     initialRouteName: 'login',

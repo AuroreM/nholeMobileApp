@@ -64,6 +64,7 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
           />
         </View>
         <Button onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
+        <Button onPress={() => this.props.navigation.navigate('clients')} title="Voir mes clients" />
       </Page>
     );
   }
