@@ -11,22 +11,23 @@ class ClientsList extends React.Component {
     this.props.getClients();
   }
 
-  renderClientList() {
-    return (
-      <View>
-        <FlatList
-          data={this.props.clients.list}
-          renderItem={client => <Client client={client} key={client.id} deleteClient={this.props.deleteClient} />}
-        />
-      </View>
-    );
-  }
+  keyExtractor = (item, index) => item.id;
 
   render() {
     return (
       <Page backgroundColor={'#fff'}>
         <Text>Mes clients</Text>
-        {!this.props.clients ? <p /> : this.renderClientList()}
+        {!this.props.clients ? (
+          <p />
+        ) : (
+          <View>
+            <FlatList
+              data={this.props.clients.list}
+              renderItem={client => <Client client={client} key={client.id} deleteClient={this.props.deleteClient} />}
+              keyExtractor={this.keyExtractor}
+            />
+          </View>
+        )}
       </Page>
     );
   }
