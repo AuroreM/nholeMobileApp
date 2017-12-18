@@ -1,7 +1,4 @@
 // @flow
-// TODO : Remove lodash
-import _ from 'lodash';
-
 import type { ActionType } from './actions';
 
 type ClientsType = {|
@@ -33,10 +30,19 @@ const ClientsReducer = (state: ClientsStateType = { list: [] }, action: ActionTy
       const { clientId } = action.payload;
       return {
         ...state,
-        list: _.remove(state.list, client => clientId !== client.id),
+        list: removeClientById(state.list, clientId),
       };
   }
   return state;
+};
+
+export const removeClientById = (clients, id) => {
+  return clients.reduce((newClients, client) => {
+    if (client.id !== id) {
+      newClients.push(client);
+    }
+    return newClients;
+  }, []);
 };
 
 export default ClientsReducer;

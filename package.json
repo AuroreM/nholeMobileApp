@@ -7,7 +7,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
     "react": "16.0.0",
     "react-native": "0.50.4",
     "react-navigation": "^1.0.0-beta.21",
@@ -31,16 +30,10 @@
     "globals": {
       "__DEV__": true
     },
-    "transformIgnorePatterns": [
-      "node_modules/(?!react-native|react-navigation)"
-    ],
-    "setupFiles": [
-      "./jest/setup.js"
-    ]
+    "transformIgnorePatterns": ["node_modules/(?!react-native|react-navigation)"],
+    "setupFiles": ["./jest/setup.js"]
   },
   "rnpm": {
-    "assets": [
-      "resources"
-    ]
+    "assets": ["resources"]
   }
 }
