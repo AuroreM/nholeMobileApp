@@ -4,7 +4,7 @@ import { NavigationActions } from 'react-navigation';
 
 import { baseUrl } from '../../config';
 import request from '../../utils/request';
-import { loginCall, login, signup } from './sagas';
+import { loginCall, loginSaga, signupSaga } from './sagas';
 
 const params = {
   email: 'aurore@a.com',
@@ -28,7 +28,7 @@ describe('loginCall successfull', () => {
 
 describe('login Saga successfull', () => {
   it('should call loginCall successfully', () => {
-    testSaga(login, {
+    testSaga(loginSaga, {
       payload: params,
       type: 'LOGIN',
     })
@@ -43,7 +43,7 @@ describe('login Saga successfull', () => {
 
 describe('signup Saga', () => {
   it('should signup successfully', () => {
-    testSaga(signup, {
+    testSaga(signupSaga, {
       type: 'SIGNUP',
       payload: params,
     })

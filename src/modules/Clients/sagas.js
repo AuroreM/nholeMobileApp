@@ -5,14 +5,18 @@ import { getClientsSuccess } from './actions';
 import { baseUrl } from '../../config';
 import { tokenSelector } from '../User';
 
-export function* getClientsListSaga() {
+export function* getClientsListCall(token) {
   const requestURL = `${baseUrl()}/api/Clients/byAuth`;
+  return yield call(request, `${requestURL}?access_token=${token}`, {
+    method: 'GET',
+  });
+}
+
+export function* getClientsListSaga() {
   // yield put(clientsListLoading());
   try {
     const token = yield select(tokenSelector);
-    const clients = yield call(request, `${requestURL}?access_token=${token}`, {
-      method: 'GET',
-    });
+    const clients = yield call(getClientsListCall, token);
     yield put(getClientsSuccess(clients));
   } catch (err) {
     console.warn('Failure in getClientsListSaga');
