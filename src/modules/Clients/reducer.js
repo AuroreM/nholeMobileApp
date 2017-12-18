@@ -4,8 +4,20 @@ import _ from 'lodash';
 
 import type { ActionType } from './actions';
 
+type ClientsType = {|
+  firstname: string,
+  lastname: string,
+  number: string,
+  morning: boolean,
+  lunch: boolean,
+  afternoon: boolean,
+  evening: boolean,
+  id: number,
+  userId: number,
+|};
+
 export type ClientsStateType = {
-  list: [],
+  list: ClientsType[],
 };
 
 const ClientsReducer = (state: ClientsStateType = { list: [] }, action: ActionType): ClientsStateType => {

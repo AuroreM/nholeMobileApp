@@ -43,6 +43,8 @@ describe('getClientsListSaga', () => {
         afternoon: true,
         lunch: false,
         evening: false,
+        id: 1,
+        userId: 1,
       },
       {
         firstname: 'Christine',
@@ -52,6 +54,8 @@ describe('getClientsListSaga', () => {
         afternoon: false,
         lunch: false,
         evening: true,
+        id: 2,
+        userId: 1,
       },
     ];
     return expectSaga(getClientsListSaga, { type: 'GET_CLIENTS' })
