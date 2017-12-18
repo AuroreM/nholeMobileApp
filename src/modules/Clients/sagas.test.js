@@ -2,7 +2,7 @@ import { testSaga, expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
-import { getClientsListSaga, getClientsListCall } from './sagas';
+import { getClientsListSaga, getClientsListCall, deleteClientSaga } from './sagas';
 import { tokenSelector } from '../User';
 import { getClientsSuccess } from './actions';
 import { baseUrl } from '../../config';
@@ -63,5 +63,23 @@ describe('getClientsListSaga', () => {
       .provide([[select(tokenSelector), 1], [matchers.call.fn(getClientsListCall, '1234'), clients]])
       .run()
       .then(result => expect(result.storeState.clients.list).toEqual(clients));
+  });
+});
+
+describe('deleteClientSaga', () => {
+  it('should handle deleteClientSaga correctly', () => {
+    const requestBaseUrl = `${baseUrl()}/api/Clients`;
+    testSaga(deleteClientSaga, { type: 'DELETE_CLIENT', payload: { clientId: 1 } })
+      .next()
+      .select(tokenSelector)
+      .next('1234')
+      .call(request, `${requestBaseUrl}/1?access_token=1234`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .next()
+      .isDone();
   });
 });

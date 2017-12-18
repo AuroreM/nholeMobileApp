@@ -26,7 +26,7 @@ export function* getClientsListSaga() {
 export function* deleteClientSaga(action) {
   const requestBaseUrl = `${baseUrl()}/api/Clients`;
   const token = yield select(tokenSelector);
-  const requestURL = `${requestBaseUrl}/${action.clientId}?access_token=${token}`;
+  const requestURL = `${requestBaseUrl}/${action.payload.clientId}?access_token=${token}`;
   yield call(request, requestURL, {
     method: 'DELETE',
     headers: {
