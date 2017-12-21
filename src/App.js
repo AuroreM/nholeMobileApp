@@ -31,9 +31,11 @@ export default class App extends Component<void, void> {
         store.dispatch(navigateTo('message'));
       }
     });
+
   componentDidMount() {
     this.redirectToMessageIfConnected();
   }
+
   render() {
     return (
       <Provider store={store}>

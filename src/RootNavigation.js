@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
-import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { StackNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
 import * as Pages from 'nholeMobileApp/src/pages';
@@ -36,7 +36,18 @@ class StackNavigation extends Component<PropsType, void> {
     BackHandler.addEventListener('hardwareBackPress', this.backAction);
   }
 
-  backAction = () => this.props.navigation.goBack();
+  backAction = () => {
+    const { navigation } = this.props;
+    if (navigation.routes.length > 1) {
+      const currentRoute = navigation.routes[navigation.index].routeName;
+      if (currentRoute === 'message') {
+        BackHandler.exitApp();
+      } else {
+        return this.props.dispatch(NavigationActions.back());
+      }
+      return true;
+    }
+  };
 
   render() {
     const { dispatch, navigation } = this.props;
@@ -52,7 +63,13 @@ class StackNavigation extends Component<PropsType, void> {
   }
 }
 
-export default connect(state => ({ navigation: state.stack }))(StackNavigation);
+const mapStateToProps = state => ({ navigation: state.stack });
+
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StackNavigation);
 
 type PropsType = {
   dispatch: Function,
