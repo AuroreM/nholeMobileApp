@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Button } from 'react-native';
 
 import Client from './components/Client';
 import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../../modules/Clients/';
@@ -28,6 +28,7 @@ class ClientsList extends React.Component {
             />
           </View>
         )}
+        <Button onPress={() => this.props.navigation.navigate('clientAddition')} title={'Ajouter un client'} />
       </Page>
     );
   }

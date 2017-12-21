@@ -21,6 +21,9 @@ export const Stack = StackNavigator(
     clients: {
       screen: Pages.ClientsList,
     },
+    clientAddition: {
+      screen: Pages.ClientAddition,
+    },
   },
   {
     initialRouteName: 'login',
