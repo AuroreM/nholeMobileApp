@@ -1,7 +1,7 @@
 //@flow
 
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Keyboard } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
@@ -55,7 +55,10 @@ type DispatchProps = {
 };
 
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  onSubmit: values => dispatch(addClient(values)),
+  onSubmit: values => {
+    Keyboard.dismiss();
+    dispatch(addClient(values));
+  },
 });
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'clientAddition' }));

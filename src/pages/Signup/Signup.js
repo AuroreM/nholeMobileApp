@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Button } from 'react-native';
+import { Button, Keyboard } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect, DispatchProp } from 'react-redux';
 import { compose } from 'recompose';
@@ -27,6 +27,7 @@ class Signup extends Component<DispatchProps & NavigationScreenProp, void> {
 
 const mapDispatchToProps = (dispatch: Function): DispatchProp => ({
   onSubmit: ({ email, password }) => {
+    Keyboard.dismiss();
     dispatch(signup(email, password));
   },
 });

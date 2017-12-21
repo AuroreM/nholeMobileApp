@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Button } from 'react-native';
+import { Button, Keyboard } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
@@ -36,7 +36,10 @@ type DispatchProps = {
 };
 
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  onSubmit: ({ email, password }) => dispatch(login(email, password)),
+  onSubmit: ({ email, password }) => {
+    Keyboard.dismiss();
+    dispatch(login(email, password));
+  },
 });
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'login' }));

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Button, View, Text, TextInput } from 'react-native';
+import { Button, View, Text, TextInput, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
@@ -21,6 +21,7 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     this.setState({ slot });
   };
   sendMessageToClient = () => {
+    Keyboard.dismiss();
     this.props.sendMessage(this.state.message, this.state.slot);
   };
 
