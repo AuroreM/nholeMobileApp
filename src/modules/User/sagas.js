@@ -1,4 +1,4 @@
-import { takeLatest, put, call } from 'redux-saga/effects';
+import { takeLatest, put, call, select } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
 
 import request from '../../utils/request';
@@ -19,18 +19,24 @@ export function* loginCall(params) {
     });
     AuthenticationManager.set(JSON.stringify(response));
     yield put(setToken(response.id));
+    return true;
   } catch (e) {
     // yield put(handleToastr("L'authentification a échoué, veuillez vérifier votre email et votre mot de passe"));
     console.warn(`Login failure ${e}`);
+    return false;
   }
 }
 
 export function* loginSaga(action) {
-  yield call(loginCall, {
+  const response = yield call(loginCall, {
     email: action.payload.email,
     password: action.payload.password,
   });
-  yield put(NavigationActions.navigate({ routeName: 'message' }));
+  if (response) {
+    yield put(NavigationActions.navigate({ routeName: 'message' }));
+  } else {
+    // show toast message
+  }
 }
 
 export function* signupSaga(action) {

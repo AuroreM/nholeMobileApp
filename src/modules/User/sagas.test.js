@@ -34,9 +34,20 @@ describe('login Saga successfull', () => {
     })
       .next()
       .call(loginCall, params)
-      .next()
+      .next(true)
       .put(NavigationActions.navigate({ routeName: 'message' }))
       .next()
+      .isDone();
+  });
+
+  it('should handle an error while login', () => {
+    testSaga(loginSaga, {
+      payload: params,
+      type: 'LOGIN',
+    })
+      .next()
+      .call(loginCall, params)
+      .next(false)
       .isDone();
   });
 });
