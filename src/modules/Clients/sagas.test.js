@@ -1,8 +1,9 @@
 import { testSaga, expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 import * as matchers from 'redux-saga-test-plan/matchers';
+import { reset } from 'redux-form';
 
-import { getClientsListSaga, getClientsListCall, deleteClientSaga } from './sagas';
+import { getClientsListSaga, getClientsListCall, deleteClientSaga, addClientSaga } from './sagas';
 import { tokenSelector } from '../User';
 import { getClientsSuccess } from './actions';
 import { baseUrl } from '../../config';
@@ -81,5 +82,38 @@ describe('deleteClientSaga', () => {
       })
       .next()
       .isDone();
+  });
+});
+
+describe('addClientSaga', () => {
+  it('should handle saga correctly', () => {
+    const requestURL = `${baseUrl()}/api/Clients`;
+    testSaga(addClientSaga, {
+      type: 'ADD_CLIENT',
+      payload: { client: { firstname: 'A', lastname: 'B', number: '06', morning: true, lunch: true } },
+    })
+      .next()
+      .select(tokenSelector)
+      .next('1234')
+      .call(request, `${requestURL}?access_token=1234`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstname: 'A',
+          lastname: 'B',
+          number: '06',
+          morning: true,
+          lunch: true,
+          afternoon: false,
+          evening: false,
+          id: new Date().getTime(),
+        }),
+      })
+      .next()
+      .call(getClientsListSaga)
+      .next()
+      .put(reset('clientAddition'));
   });
 });

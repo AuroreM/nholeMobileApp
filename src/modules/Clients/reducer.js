@@ -1,7 +1,7 @@
 // @flow
 import type { ActionType } from './actions';
 
-type ClientsType = {|
+type ClientType = {|
   firstname: string,
   lastname: string,
   number: string,
@@ -10,11 +10,17 @@ type ClientsType = {|
   afternoon: boolean,
   evening: boolean,
   id: number,
+|};
+
+type ExistingClientType = {|
+  ...ClientType,
   userId: number,
 |};
 
+export type NewClientType = ClientType;
+
 export type ClientsStateType = {
-  list: ClientsType[],
+  list: ExistingClientType[],
 };
 
 const ClientsReducer = (state: ClientsStateType = { list: [] }, action: ActionType): ClientsStateType => {
@@ -36,7 +42,7 @@ const ClientsReducer = (state: ClientsStateType = { list: [] }, action: ActionTy
   return state;
 };
 
-export const removeClientById = (clients: ClientsType[], id: string) => {
+export const removeClientById = (clients: ExistingClientType[], id: string) => {
   return clients.reduce((newClients, client) => {
     if (client.id !== id) {
       newClients.push(client);

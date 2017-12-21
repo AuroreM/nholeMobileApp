@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page, TextField, Checkbox } from 'nholeMobileApp/src/components';
+import { addClient } from '../../modules/Clients';
 
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
   render() {
@@ -54,7 +55,7 @@ type DispatchProps = {
 };
 
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  onSubmit: values => console.log(values),
+  onSubmit: values => dispatch(addClient(values)),
 });
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'clientAddition' }));

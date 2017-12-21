@@ -1,4 +1,5 @@
 // @flow
+import type { NewClientType } from './reducer';
 
 export const getClients = (): ActionType => {
   return {
@@ -27,6 +28,13 @@ export const updateClientsListAfterOneDeleted = (clientId: string): ActionType =
   };
 };
 
+export const addClient = (client: NewClientType): ActionType => ({
+  type: 'ADD_CLIENT',
+  payload: {
+    client,
+  },
+});
+
 export type ActionType =
   | {|
       type: 'GET_CLIENTS',
@@ -38,6 +46,10 @@ export type ActionType =
   | {|
       type: 'UPDATE_CLIENTS_LIST_AFTER_ONE_DELETED',
       payload: { clientId: string },
+    |}
+  | {|
+      type: 'ADD_CLIENT',
+      payload: { client: NewClientType },
     |}
   | {|
       type: 'GET_CLIENTS_SUCCESS',
