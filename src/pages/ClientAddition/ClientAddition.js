@@ -1,12 +1,15 @@
+//@flow
+
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
+import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page, TextField, Checkbox } from 'nholeMobileApp/src/components';
 
-class ClientAddition extends Component {
+class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
   render() {
     return (
       <Page backgroundColor={'#fff'}>
@@ -45,6 +48,10 @@ class ClientAddition extends Component {
     );
   }
 }
+
+type DispatchProps = {
+  onSubmit: Function,
+};
 
 const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
   onSubmit: values => console.log(values),

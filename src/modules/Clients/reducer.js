@@ -36,7 +36,7 @@ const ClientsReducer = (state: ClientsStateType = { list: [] }, action: ActionTy
   return state;
 };
 
-export const removeClientById = (clients, id) => {
+export const removeClientById = (clients: ClientsType[], id: string) => {
   return clients.reduce((newClients, client) => {
     if (client.id !== id) {
       newClients.push(client);
