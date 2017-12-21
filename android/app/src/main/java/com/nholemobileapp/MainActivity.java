@@ -1,6 +1,8 @@
 package com.nholemobileapp;
 
 import com.facebook.react.ReactActivity;
+import android.content.Intent;
+import com.tkporter.sendsms.SendSMSPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +13,9 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "nholeMobileApp";
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        SendSMSPackage.getInstance().onActivityResult(requestCode, resultCode, data);
     }
 }
