@@ -12,6 +12,14 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
   static navigationOptions = {
     title: 'Message',
     headerLeft: null,
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTitleStyle: {
+      fontSize: 28,
+      fontWeight: '300',
+      color: 'rgb(30,144,255)',
+    },
   };
   state = {
     slot: '',

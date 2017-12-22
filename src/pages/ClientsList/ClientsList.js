@@ -7,6 +7,19 @@ import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../.
 import { Page } from 'nholeMobileApp/src/components';
 
 class ClientsList extends React.Component {
+  static navigationOptions = {
+    title: 'Clients',
+    headerLeft: null,
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTitleStyle: {
+      fontSize: 28,
+      fontWeight: '300',
+      color: 'rgb(30,144,255)',
+    },
+  };
+
   componentWillMount() {
     this.props.getClients();
   }

@@ -11,6 +11,19 @@ import { Page, TextField, Checkbox } from 'nholeMobileApp/src/components';
 import { addClient } from '../../modules/Clients';
 
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
+  static navigationOptions = {
+    title: 'Nouveau Client',
+    headerLeft: null,
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTitleStyle: {
+      fontSize: 28,
+      fontWeight: '300',
+      color: 'rgb(30,144,255)',
+    },
+  };
+
   render() {
     return (
       <Page backgroundColor={'#fff'}>

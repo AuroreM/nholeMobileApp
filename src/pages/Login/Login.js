@@ -13,6 +13,15 @@ import { login } from '../../modules/User';
 class Login extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = {
     title: 'Login',
+    headerLeft: null,
+    headerStyle: {
+      backgroundColor: '#fff',
+    },
+    headerTitleStyle: {
+      fontSize: 28,
+      fontWeight: '300',
+      color: 'rgb(30,144,255)',
+    },
   };
 
   onPress = () => {

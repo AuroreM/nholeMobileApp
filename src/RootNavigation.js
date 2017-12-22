@@ -27,6 +27,7 @@ export const Stack = StackNavigator(
   },
   {
     initialRouteName: 'login',
+    headerMode: 'screen',
   }
 );
 
