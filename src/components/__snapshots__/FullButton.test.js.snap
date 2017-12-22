@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FullButton /> renders correctly 1`] = `
+<View
+  activeOpacity={1}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "opacity": 0.9,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgb(64,64,64)",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "width": 200,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "rgb(30,144,255)",
+            "fontSize": 18,
+          },
+          undefined,
+        ]
+      }
+    >
+      Envoyer
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`<FullButton /> renders correctly when it is a secondary Button 1`] = `
+<View
+  activeOpacity={1}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "opacity": 0.9,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgb(64,64,64)",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "width": 200,
+        },
+        Object {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "rgb(30,144,255)",
+            "fontSize": 18,
+          },
+          Object {
+            "color": "rgb(64,64,64)",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Envoyer
+    </Text>
+  </View>
+</View>
+`;

@@ -5,7 +5,7 @@ import { View, Text, TextInput, Keyboard, StyleSheet, Button } from 'react-nativ
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
-import { Page, Checkbox } from 'nholeMobileApp/src/components';
+import { Page, Checkbox, FullButton } from 'nholeMobileApp/src/components';
 import { sendMessage } from '../../modules/Message/actions';
 import navigationHeader from '../../utils/navigationHeader';
 
@@ -81,8 +81,14 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
             />
           </View>
         </View>
-        <Button onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
-        <Button onPress={() => this.props.navigation.navigate('clients')} title="Voir mes clients" />
+        <View style={this.styles.buttonsContainer}>
+          <FullButton onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
+          <FullButton
+            onPress={() => this.props.navigation.navigate('clients')}
+            title="Voir mes clients"
+            secondaryButton
+          />
+        </View>
       </Page>
     );
   }
@@ -107,6 +113,11 @@ const getStyles = () =>
     text: {
       fontSize: 20,
       marginTop: 8,
+    },
+    buttonsContainer: {
+      height: 100,
+      justifyContent: 'space-around',
+      alignItems: 'center',
     },
   });
 

@@ -1,13 +1,13 @@
 //@flow
 
 import React, { Component } from 'react';
-import { View, Text, Button, Keyboard } from 'react-native';
+import { View, Text, Keyboard } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
-import { Page, TextField, Checkbox } from 'nholeMobileApp/src/components';
+import { Page, TextField, Checkbox, FullButton } from 'nholeMobileApp/src/components';
 import { addClient } from '../../modules/Clients';
 import navigationHeader from '../../utils/navigationHeader';
 
@@ -47,7 +47,7 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
           )}
         />
 
-        <Button onPress={this.props.handleSubmit} title="Enregistrer" />
+        <FullButton onPress={this.props.handleSubmit} title="Enregistrer" />
       </Page>
     );
   }
