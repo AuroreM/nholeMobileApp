@@ -1,11 +1,11 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Button, View, Text, TextInput, Keyboard } from 'react-native';
+import { View, Text, TextInput, Keyboard, StyleSheet, Button } from 'react-native';
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
-import { Page } from 'nholeMobileApp/src/components';
+import { Page, Checkbox } from 'nholeMobileApp/src/components';
 import { sendMessage } from '../../modules/Message/actions';
 import navigationHeader from '../../utils/navigationHeader';
 
@@ -26,6 +26,8 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     this.props.sendMessage(this.state.message, this.state.slot);
   };
 
+  styles = getStyles();
+
   render() {
     const styles = {
       underlineFocusStyle: {
@@ -37,33 +39,47 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     };
     return (
       <Page backgroundColor={'#fff'}>
-        <Text>Envoyez un message</Text>
         <TextInput
-          style={{ height: 40, borderColor: '#808080', borderWidth: 1 }}
-          placeholder="Message"
+          style={this.styles.message}
+          placeholder="Entrez votre message ici :)"
           onChangeText={message => this.setState({ message })}
+          underlineColorAndroid="rgb(30,144,255)"
+          multiline
         />
-        <View>
-          <Button
-            title={'Matin'}
-            onPress={() => this.handleTouchTap('morning')}
-            color={this.state.slot === 'morning' ? 'rgb(30,144,255)' : '#808080'}
-          />
-          <Button
-            title={'Midi'}
-            onPress={() => this.handleTouchTap('lunch')}
-            color={this.state.slot === 'lunch' ? 'rgb(30,144,255)' : '#808080'}
-          />
-          <Button
-            title={'Après-midi'}
-            onPress={() => this.handleTouchTap('afternoon')}
-            color={this.state.slot === 'afternoon' ? 'rgb(30,144,255)' : '#808080'}
-          />
-          <Button
-            title={'Soir'}
-            onPress={() => this.handleTouchTap('evening')}
-            color={this.state.slot === 'evening' ? 'rgb(30,144,255)' : '#808080'}
-          />
+        <Text style={this.styles.text}>Choisissez le créneau :</Text>
+        <View style={this.styles.container}>
+          <View style={this.styles.radioButtons}>
+            <Checkbox
+              style={this.styles.radioButton}
+              text={'Matin'}
+              onPress={() => this.handleTouchTap('morning')}
+              isChecked={this.state.slot === 'morning' ? true : false}
+              isRadioButton
+            />
+            <Checkbox
+              style={this.styles.radioButton}
+              text={'Midi'}
+              onPress={() => this.handleTouchTap('lunch')}
+              isChecked={this.state.slot === 'lunch' ? true : false}
+              isRadioButton
+            />
+          </View>
+          <View style={this.styles.radioButtons}>
+            <Checkbox
+              style={this.styles.radioButton}
+              text={'Après-midi'}
+              onPress={() => this.handleTouchTap('afternoon')}
+              isChecked={this.state.slot === 'afternoon' ? true : false}
+              isRadioButton
+            />
+            <Checkbox
+              style={this.styles.radioButton}
+              text={'Soir'}
+              onPress={() => this.handleTouchTap('evening')}
+              isChecked={this.state.slot === 'evening' ? true : false}
+              isRadioButton
+            />
+          </View>
         </View>
         <Button onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
         <Button onPress={() => this.props.navigation.navigate('clients')} title="Voir mes clients" />
@@ -71,6 +87,28 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     );
   }
 }
+
+const getStyles = () =>
+  StyleSheet.create({
+    container: {
+      marginVertical: 15,
+      flexDirection: 'row',
+    },
+    radioButtons: {
+      width: 150,
+    },
+    radioButton: {
+      marginVertical: 5,
+    },
+    message: {
+      height: 140,
+      fontSize: 18,
+    },
+    text: {
+      fontSize: 20,
+      marginTop: 8,
+    },
+  });
 
 type StateType = {
   slot: string,

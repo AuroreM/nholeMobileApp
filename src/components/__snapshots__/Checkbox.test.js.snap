@@ -1,5 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Checkbox /> renders correctly when it is a radio button and it is checked 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "flexDirection": "row",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 22,
+        },
+        Object {
+          "color": "rgb(30,144,255)",
+          "opacity": 0.65,
+        },
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "rgb(64,64,64)",
+        "fontSize": 20,
+        "marginLeft": 15,
+        "opacity": 0.65,
+        "textAlign": "justify",
+      }
+    }
+  >
+    Matin
+  </Text>
+</View>
+`;
+
+exports[`<Checkbox /> renders correctly when it is a radio button and it is not checked 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "flexDirection": "row",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 22,
+        },
+        Object {
+          "color": "rgb(30,144,255)",
+          "opacity": 0.65,
+        },
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "rgb(64,64,64)",
+        "fontSize": 20,
+        "marginLeft": 15,
+        "opacity": 0.65,
+        "textAlign": "justify",
+      }
+    }
+  >
+    Matin
+  </Text>
+</View>
+`;
+
 exports[`<Checkbox /> renders correctly when it is checked 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -19,6 +161,7 @@ exports[`<Checkbox /> renders correctly when it is checked 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "transparent",
       "flexDirection": "row",
       "opacity": 1,
@@ -35,7 +178,7 @@ exports[`<Checkbox /> renders correctly when it is checked 1`] = `
       Array [
         Object {
           "color": undefined,
-          "fontSize": 20,
+          "fontSize": 22,
         },
         Object {
           "color": "rgb(30,144,255)",
@@ -58,11 +201,10 @@ exports[`<Checkbox /> renders correctly when it is checked 1`] = `
     style={
       Object {
         "color": "rgb(64,64,64)",
-        "fontSize": 17,
+        "fontSize": 20,
         "marginLeft": 15,
         "opacity": 0.65,
         "textAlign": "justify",
-        "width": 300,
       }
     }
   >
@@ -90,6 +232,7 @@ exports[`<Checkbox /> renders correctly when it is not checked 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "transparent",
       "flexDirection": "row",
       "opacity": 1,
@@ -106,7 +249,7 @@ exports[`<Checkbox /> renders correctly when it is not checked 1`] = `
       Array [
         Object {
           "color": undefined,
-          "fontSize": 20,
+          "fontSize": 22,
         },
         Object {
           "color": "rgb(30,144,255)",
@@ -129,11 +272,10 @@ exports[`<Checkbox /> renders correctly when it is not checked 1`] = `
     style={
       Object {
         "color": "rgb(64,64,64)",
-        "fontSize": 17,
+        "fontSize": 20,
         "marginLeft": 15,
         "opacity": 0.65,
         "textAlign": "justify",
-        "width": 300,
       }
     }
   >

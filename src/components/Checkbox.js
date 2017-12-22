@@ -10,9 +10,12 @@ class Checkbox extends Component<Props, void> {
   render() {
     const styles = this.styles;
 
+    const selectedIcon = this.props.isRadioButton ? 'radio-button-checked' : 'check';
+    const unselectedIcon = this.props.isRadioButton ? 'radio-button-unchecked' : 'check-box-outline-blank';
+
     return (
       <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
-        <Icon name={this.props.isChecked ? 'check' : 'check-box-outline-blank'} size={20} style={styles.box} />
+        <Icon name={this.props.isChecked ? selectedIcon : unselectedIcon} size={22} style={styles.box} />
         {this.props.text && <Text style={styles.label}>{this.props.text}</Text>}
       </TouchableOpacity>
     );
@@ -24,6 +27,7 @@ function getStyles() {
     container: {
       backgroundColor: 'transparent',
       flexDirection: 'row',
+      alignItems: 'center',
     },
     box: {
       color: 'rgb(30,144,255)',
@@ -35,8 +39,7 @@ function getStyles() {
     label: {
       opacity: 0.65,
       color: 'rgb(64,64,64)',
-      fontSize: 17,
-      width: 300,
+      fontSize: 20,
       textAlign: 'justify',
       marginLeft: 15,
     },
