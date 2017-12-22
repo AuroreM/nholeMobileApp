@@ -5,20 +5,10 @@ import { View, Text, FlatList, Button } from 'react-native';
 import Client from './components/Client';
 import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../../modules/Clients/';
 import { Page } from 'nholeMobileApp/src/components';
+import navigationHeader from '../../utils/navigationHeader';
 
 class ClientsList extends React.Component {
-  static navigationOptions = {
-    title: 'Clients',
-    headerLeft: null,
-    headerStyle: {
-      backgroundColor: '#fff',
-    },
-    headerTitleStyle: {
-      fontSize: 28,
-      fontWeight: '300',
-      color: 'rgb(30,144,255)',
-    },
-  };
+  static navigationOptions = navigationHeader('Clients');
 
   componentWillMount() {
     this.props.getClients();

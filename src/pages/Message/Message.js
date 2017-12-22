@@ -7,27 +7,20 @@ import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page } from 'nholeMobileApp/src/components';
 import { sendMessage } from '../../modules/Message/actions';
+import navigationHeader from '../../utils/navigationHeader';
 
 class Message extends Component<DispatchProps & NavigationScreenProp, StateType> {
-  static navigationOptions = {
-    title: 'Message',
-    headerLeft: null,
-    headerStyle: {
-      backgroundColor: '#fff',
-    },
-    headerTitleStyle: {
-      fontSize: 28,
-      fontWeight: '300',
-      color: 'rgb(30,144,255)',
-    },
-  };
+  static navigationOptions = navigationHeader('Message');
+
   state = {
     slot: '',
     message: '',
   };
+
   handleTouchTap = slot => {
     this.setState({ slot });
   };
+
   sendMessageToClient = () => {
     Keyboard.dismiss();
     this.props.sendMessage(this.state.message, this.state.slot);

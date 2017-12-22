@@ -9,20 +9,10 @@ import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page, TextField } from 'nholeMobileApp/src/components';
 import { login } from '../../modules/User';
+import navigationHeader from '../../utils/navigationHeader';
 
 class Login extends Component<DispatchProps & NavigationScreenProp, void> {
-  static navigationOptions = {
-    title: 'Login',
-    headerLeft: null,
-    headerStyle: {
-      backgroundColor: '#fff',
-    },
-    headerTitleStyle: {
-      fontSize: 28,
-      fontWeight: '300',
-      color: 'rgb(30,144,255)',
-    },
-  };
+  static navigationOptions = navigationHeader('Login');
 
   onPress = () => {
     this.props.navigation.navigate('signup');
