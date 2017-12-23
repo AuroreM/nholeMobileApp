@@ -14,6 +14,10 @@ import navigationHeader from '../../utils/navigationHeader';
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Nouveau Client', true);
 
+  renderField = text => ({ input: { value, onChange } }) => (
+    <Checkbox text={text} onPress={() => onChange(!value)} isChecked={value} />
+  );
+
   render() {
     return (
       <Page backgroundColor={'#fff'}>
@@ -26,32 +30,12 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
         <Text style={styles.instruction}>Choisissez ses créneaux</Text>
         <View style={styles.slotsContainer}>
           <View style={styles.twoSlotsContainer}>
-            <Field
-              name="morning"
-              component={({ input: { value, onChange } }) => (
-                <Checkbox text={'Matin'} onPress={() => onChange(!value)} isChecked={value} />
-              )}
-            />
-            <Field
-              name="lunch"
-              component={({ input: { value, onChange } }) => (
-                <Checkbox text={'Midi'} onPress={() => onChange(!value)} isChecked={value} />
-              )}
-            />
+            <Field name="morning" component={this.renderField('Matin')} />
+            <Field name="lunch" component={this.renderField('Midi')} />
           </View>
           <View style={styles.twoSlotsContainer}>
-            <Field
-              name="afternoon"
-              component={({ input: { value, onChange } }) => (
-                <Checkbox text={'Après-midi'} onPress={() => onChange(!value)} isChecked={value} />
-              )}
-            />
-            <Field
-              name="evening"
-              component={({ input: { value, onChange } }) => (
-                <Checkbox text={'Soir'} onPress={() => onChange(!value)} isChecked={value} />
-              )}
-            />
+            <Field name="afternoon" component={this.renderField('Après-midi')} />
+            <Field name="evening" component={this.renderField('Soir')} />
           </View>
         </View>
         <View style={styles.buttonContainer}>
