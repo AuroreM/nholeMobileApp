@@ -26,7 +26,7 @@ class ClientsList extends React.Component<DispatchProps & StateProps & Navigatio
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
           <FullButton
             onPress={() => this.props.navigation.navigate('clientAddition')}
             title={'Ajouter un client'}
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   clientContainer: {
     marginVertical: 10,
   },
-  buttonsContainer: {
+  buttonContainer: {
     marginBottom: 5,
     justifyContent: 'center',
     alignItems: 'center',
