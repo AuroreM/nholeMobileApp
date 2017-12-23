@@ -1,9 +1,12 @@
+// @flow
+
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { deleteClient } from '../../../modules/Clients/index';
 
-class Client extends React.Component {
-  onDelete = () => this.props.deleteClient(this.props.client.item.id);
+class Client extends React.Component<Props, void> {
+  onDelete = () => this.props.deleteClient(this.props.client.id);
 
   renderSlotsString = () => {
     let slots = '';
@@ -14,7 +17,7 @@ class Client extends React.Component {
       evening: 'Soir',
     };
     Object.keys(translations).forEach(slot => {
-      if (this.props.client.item[slot]) {
+      if (this.props.client[slot]) {
         slots += `${translations[slot]}, `;
       }
     });
@@ -27,7 +30,7 @@ class Client extends React.Component {
       <View style={this.props.style}>
         <View style={styles.nameContainer}>
           <Text style={styles.name}>
-            {this.props.client.item.firstname} {this.props.client.item.lastname}
+            {this.props.client.firstname} {this.props.client.lastname}
           </Text>
           <TouchableOpacity onPress={this.onDelete}>
             <Icon name="close" size={24} style={{ color: 'rgb(220, 20, 60)' }} />
@@ -35,7 +38,7 @@ class Client extends React.Component {
         </View>
         <View style={styles.infoContainer}>
           <Text>N° de téléphone : </Text>
-          <Text>{this.props.client.item.number}</Text>
+          <Text>{this.props.client.number}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text>Créneaux : </Text>
@@ -45,6 +48,12 @@ class Client extends React.Component {
     );
   }
 }
+
+type Props = {
+  client: any,
+  style?: any,
+  deleteClient: Function,
+};
 
 export default Client;
 

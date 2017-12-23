@@ -38,7 +38,7 @@ type DispatchProps = {
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'signup' }));
 export default enhance(Signup);
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   button: {
     marginTop: 8,
     height: 100,

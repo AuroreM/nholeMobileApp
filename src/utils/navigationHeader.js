@@ -1,4 +1,4 @@
-export default (title, headerLeft = null) => {
+export default (title: string, headerLeft: ?boolean = null) => {
   const navigationOptions = {
     title,
     headerStyle: {

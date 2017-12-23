@@ -12,8 +12,15 @@ type ClientType = {|
   id: number,
 |};
 
-type ExistingClientType = {|
-  ...ClientType,
+export type ExistingClientType = {|
+  firstname: string,
+  lastname: string,
+  number: string,
+  morning: boolean,
+  lunch: boolean,
+  afternoon: boolean,
+  evening: boolean,
+  id: number,
   userId: number,
 |};
 
