@@ -7,6 +7,23 @@ class Client extends React.Component {
 
   onDelete = () => this.props.deleteClient(this.props.client.item.id);
 
+  renderSlotsString = () => {
+    let slots = '';
+    const translations = {
+      morning: 'Matin',
+      lunch: 'Midi',
+      afternoon: 'Après-midi',
+      evening: 'Soir',
+    };
+    Object.keys(translations).forEach(slot => {
+      if (this.props.client.item[slot]) {
+        slots += `${translations[slot]}, `;
+      }
+    });
+
+    return slots.substring(0, slots.length - 2);
+  };
+
   render() {
     return (
       <View>
@@ -24,12 +41,7 @@ class Client extends React.Component {
         </View>
         <View style={this.styles.infoContainer}>
           <Text>Créneaux : </Text>
-          <Text style={this.styles.info}>
-            {this.props.client.item.morning ? 'Matin, ' : ''}
-            {this.props.client.item.lunch ? 'Midi, ' : ''}
-            {this.props.client.item.afternoon ? 'Après-midi, ' : ''}
-            {this.props.client.item.evening ? 'Soirée, ' : ''}{' '}
-          </Text>
+          <Text style={this.styles.info}>{this.renderSlotsString()}</Text>
         </View>
       </View>
     );
