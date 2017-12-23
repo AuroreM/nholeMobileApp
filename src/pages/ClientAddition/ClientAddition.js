@@ -12,7 +12,7 @@ import { addClient } from '../../modules/Clients';
 import navigationHeader from '../../utils/navigationHeader';
 
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
-  static navigationOptions = navigationHeader('Nouveau Client');
+  static navigationOptions = navigationHeader('Nouveau Client', true);
 
   render() {
     return (

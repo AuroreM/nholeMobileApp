@@ -8,7 +8,7 @@ import { Page, FullButton } from 'nholeMobileApp/src/components';
 import navigationHeader from '../../utils/navigationHeader';
 
 class ClientsList extends React.Component {
-  static navigationOptions = navigationHeader('Clients');
+  static navigationOptions = navigationHeader('Clients', true);
 
   componentWillMount() {
     this.props.getClients();
