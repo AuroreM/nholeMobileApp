@@ -3391,9 +3391,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-react-native-sms@^1.5.0:
+"react-native-sms@https://github.com/AuroreM/react-native-sms#2283a3780d8742c96051fe4d77b28800a052a85d":
   version "1.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-sms/-/react-native-sms-1.5.0.tgz#3f63eb6de07735651d470f4161205f6f6f63eab2"
+  resolved "https://github.com/AuroreM/react-native-sms#2283a3780d8742c96051fe4d77b28800a052a85d"
 
 react-native-tab-view@^0.0.70:
   version "0.0.70"
