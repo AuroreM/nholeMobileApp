@@ -3,7 +3,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { deleteClient } from '../../../modules/Clients/index';
+
+import { deleteClient } from '../../../modules/Clients';
+import theme from 'nholeMobileApp/src/theme';
 
 class Client extends React.Component<Props, void> {
   onDelete = () => this.props.deleteClient(this.props.client.id);
@@ -33,7 +35,7 @@ class Client extends React.Component<Props, void> {
             {this.props.client.firstname} {this.props.client.lastname}
           </Text>
           <TouchableOpacity onPress={this.onDelete}>
-            <Icon name="close" size={24} style={{ color: 'rgb(220, 20, 60)' }} />
+            <Icon name="close" size={24} style={styles.icon} />
           </TouchableOpacity>
         </View>
         <View style={styles.infoContainer}>
@@ -74,5 +76,8 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 14,
     fontWeight: 'bold',
+  },
+  icon: {
+    color: theme.color.red,
   },
 });

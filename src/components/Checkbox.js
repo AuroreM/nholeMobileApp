@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
+import theme from 'nholeMobileApp/src/theme';
+
 class Checkbox extends Component<Props, void> {
   render() {
     const selectedIcon = this.props.isRadioButton ? 'radio-button-checked' : 'check';
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   box: {
-    color: 'rgb(30,144,255)',
+    color: theme.color.blue,
     opacity: 0.65,
   },
   boxIfChecked: {
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
   },
   label: {
     opacity: 0.65,
-    color: 'rgb(64,64,64)',
+    color: theme.color.gray,
     fontSize: 20,
     textAlign: 'justify',
     marginLeft: 15,

@@ -8,6 +8,7 @@ import type { NavigationScreenProp } from 'react-navigation';
 import { Page, Checkbox, FullButton } from 'nholeMobileApp/src/components';
 import { sendMessage } from '../../modules/Message/actions';
 import navigationHeader from '../../utils/navigationHeader';
+import theme from 'nholeMobileApp/src/theme';
 
 class Message extends Component<DispatchProps & NavigationScreenProp, StateType> {
   static navigationOptions = navigationHeader('Message');
@@ -33,7 +34,7 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
           style={styles.message}
           placeholder="Entrez votre message ici :)"
           onChangeText={message => this.setState({ message })}
-          underlineColorAndroid="rgb(30,144,255)"
+          underlineColorAndroid={theme.color.blue}
           multiline
         />
         <Text style={styles.text}>Choisissez le créneau :</Text>

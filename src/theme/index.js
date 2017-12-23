@@ -10,11 +10,12 @@ export default {
     },
     default: {
       fontSize: 16,
-    }
+    },
   },
-  colors: {
-    oceanBlue: '#05A5D1',
-    darkGray: '#333333',
+  color: {
+    blue: 'rgb(30,144,255)',
+    gray: 'rgb(64,64,64)',
+    red: 'rgb(220, 20, 60)',
   },
   grid: {
     x1: gridSize * 1,

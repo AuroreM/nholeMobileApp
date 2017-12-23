@@ -1,7 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import { StyleSheet, View, ActivityIndicator, Text } from 'react-native';
+
 import Button from './Button';
+import theme from 'nholeMobileApp/src/theme';
 
 class FullButton extends Component<Props, void> {
   render() {
@@ -25,7 +27,7 @@ export default FullButton;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'rgb(64,64,64)',
+    backgroundColor: theme.color.gray,
     borderRadius: 5,
     width: 200,
     height: 40,
@@ -37,11 +39,11 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   buttonText: {
-    color: 'rgb(30,144,255)',
+    color: theme.color.blue,
     fontSize: 18,
   },
   secondaryButtonText: {
-    color: 'rgb(64,64,64)',
+    color: theme.color.gray,
     fontSize: 16,
   },
 });
