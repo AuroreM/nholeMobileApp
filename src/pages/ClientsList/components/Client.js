@@ -26,7 +26,7 @@ class Client extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={this.props.style}>
         <View style={this.styles.nameContainer}>
           <Text style={this.styles.name}>
             {this.props.client.item.firstname} {this.props.client.item.lastname}
