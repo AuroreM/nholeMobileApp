@@ -72,7 +72,7 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
             />
           </View>
         </View>
-        <View style={styles.buttonsContainer}>
+        <View style={theme.buttonsContainer}>
           <FullButton onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
           <FullButton
             onPress={() => this.props.navigation.navigate('clients')}
@@ -106,22 +106,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   radioButtons: {
-    width: 150,
+    width: theme.width.halfPage,
   },
   radioButton: {
     marginVertical: theme.margin.vertical.small,
   },
   message: {
-    height: 140,
+    height: theme.height.bigTextInput,
     fontSize: theme.fontSize.normal,
   },
   text: {
     fontSize: theme.fontSize.normal,
     marginTop: theme.margin.vertical.normal,
-  },
-  buttonsContainer: {
-    height: 100,
-    justifyContent: 'space-around',
-    alignItems: 'center',
   },
 });

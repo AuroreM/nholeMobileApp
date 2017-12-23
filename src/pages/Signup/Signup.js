@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Keyboard, StyleSheet } from 'react-native';
+import { Keyboard } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect, DispatchProp } from 'react-redux';
 import { compose } from 'recompose';
@@ -19,7 +19,9 @@ class Signup extends Component<DispatchProps & NavigationScreenProp, void> {
       <Page backgroundColor={'#fff'}>
         <Field name="email" placeholder="Email" component={TextField} type="email" />
         <Field name="password" placeholder="Mot de passe" component={TextField} type="password" secureTextEntry />
-        <FullButton style={styles.button} title="Signup" onPress={this.props.handleSubmit} />
+        <View style={theme.buttonContainer}>
+          <FullButton title="Signup" onPress={this.props.handleSubmit} />
+        </View>
       </Page>
     );
   }
@@ -38,12 +40,3 @@ type DispatchProps = {
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'signup' }));
 export default enhance(Signup);
-
-const styles = StyleSheet.create({
-  button: {
-    marginTop: theme.margin.vertical.normal,
-    height: 100,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-});

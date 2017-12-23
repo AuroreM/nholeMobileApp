@@ -5,7 +5,7 @@ export default (title: string, headerLeft: ?boolean = null) => {
     title,
     headerStyle: {
       backgroundColor: theme.color.gray,
-      height: 60,
+      height: theme.height.header,
     },
     headerTitleStyle: {
       fontSize: theme.fontSize.header,

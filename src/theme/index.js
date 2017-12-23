@@ -24,6 +24,23 @@ export default {
       normal: 15,
     },
   },
+  width: {
+    halfPage: 150,
+    touchable: 200,
+  },
+  height: {
+    touchable: 42,
+    bigTextInput: 140,
+    header: 60,
+  },
+  border: {
+    radius: 5,
+  },
+  buttonsContainer: {
+    height: 100,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
   buttonContainer: {
     marginVertical: MARGIN_VERTICAL_NORMAL,
     justifyContent: 'center',

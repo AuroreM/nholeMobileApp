@@ -28,9 +28,9 @@ export default FullButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: theme.color.gray,
-    borderRadius: 5,
-    width: 200,
-    height: 40,
+    borderRadius: theme.border.radius,
+    width: theme.width.touchable,
+    height: theme.height.touchable,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   twoSlotsContainer: {
-    width: 150,
+    width: theme.width.halfPage,
   },
   instruction: {
     fontSize: theme.fontSize.normal,

@@ -27,7 +27,7 @@ class ClientsList extends React.Component<DispatchProps & StateProps & Navigatio
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <View style={theme.buttonContainer}>
+        <View style={[theme.buttonContainer, { marginVertical: 0 }]}>
           <FullButton
             onPress={() => this.props.navigation.navigate('clientAddition')}
             title={'Ajouter un client'}
