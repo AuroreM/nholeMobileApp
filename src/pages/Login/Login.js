@@ -14,8 +14,6 @@ import navigationHeader from '../../utils/navigationHeader';
 class Login extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Login');
 
-  styles = getStyles();
-
   onPress = () => {
     this.props.navigation.navigate('signup');
   };
@@ -25,7 +23,7 @@ class Login extends Component<DispatchProps & NavigationScreenProp, void> {
       <Page backgroundColor={'#fff'}>
         <Field name="email" placeholder="Email" component={TextField} type="email" />
         <Field name="password" placeholder="Mot de passe" component={TextField} type="password" secureTextEntry />
-        <View style={this.styles.buttonsContainer}>
+        <View style={styles.buttonsContainer}>
           <FullButton title="Login" onPress={this.props.handleSubmit} />
           <FullButton title="Sign up" onPress={this.onPress} secondaryButton />
         </View>
@@ -33,16 +31,6 @@ class Login extends Component<DispatchProps & NavigationScreenProp, void> {
     );
   }
 }
-
-const getStyles = () =>
-  StyleSheet.create({
-    buttonsContainer: {
-      marginTop: 8,
-      height: 100,
-      justifyContent: 'space-around',
-      alignItems: 'center',
-    },
-  });
 
 type DispatchProps = {
   onSubmit: Function,
@@ -57,3 +45,12 @@ const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'login' }));
 export default enhance(Login);
+
+const styles = StyleSheet.create({
+  buttonsContainer: {
+    marginTop: 8,
+    height: 100,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+});

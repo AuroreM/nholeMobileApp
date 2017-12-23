@@ -9,19 +9,13 @@ import navigationHeader from '../../utils/navigationHeader';
 
 class ClientsList extends React.Component {
   static navigationOptions = navigationHeader('Clients');
-  styles = getStyles();
 
   componentWillMount() {
     this.props.getClients();
   }
 
   renderClient = client => (
-    <Client
-      style={this.styles.clientContainer}
-      client={client}
-      key={client.id}
-      deleteClient={this.props.deleteClient}
-    />
+    <Client style={styles.clientContainer} client={client} key={client.id} deleteClient={this.props.deleteClient} />
   );
 
   keyExtractor = (item, index) => item.id;
@@ -29,7 +23,7 @@ class ClientsList extends React.Component {
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <View style={this.styles.buttonsContainer}>
+        <View style={styles.buttonsContainer}>
           <FullButton
             onPress={() => this.props.navigation.navigate('clientAddition')}
             title={'Ajouter un client'}
@@ -48,18 +42,6 @@ class ClientsList extends React.Component {
   }
 }
 
-const getStyles = () =>
-  StyleSheet.create({
-    clientContainer: {
-      marginVertical: 10,
-    },
-    buttonsContainer: {
-      marginBottom: 5,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  });
-
 const mapDispatchToProps = dispatch => ({
   deleteClient: clientId => {
     dispatch(updateClientsListAfterOneDeleted(clientId));
@@ -74,3 +56,14 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientsList);
+
+const styles = StyleSheet.create({
+  clientContainer: {
+    marginVertical: 10,
+  },
+  buttonsContainer: {
+    marginBottom: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

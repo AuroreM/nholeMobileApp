@@ -26,54 +26,44 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     this.props.sendMessage(this.state.message, this.state.slot);
   };
 
-  styles = getStyles();
-
   render() {
-    const styles = {
-      underlineFocusStyle: {
-        borderColor: 'rgb(30,144,255)',
-      },
-      floatingLabelFocusStyle: {
-        color: 'rgb(30,144,255)',
-      },
-    };
     return (
       <Page backgroundColor={'#fff'}>
         <TextInput
-          style={this.styles.message}
+          style={styles.message}
           placeholder="Entrez votre message ici :)"
           onChangeText={message => this.setState({ message })}
           underlineColorAndroid="rgb(30,144,255)"
           multiline
         />
-        <Text style={this.styles.text}>Choisissez le créneau :</Text>
-        <View style={this.styles.container}>
-          <View style={this.styles.radioButtons}>
+        <Text style={styles.text}>Choisissez le créneau :</Text>
+        <View style={styles.container}>
+          <View style={styles.radioButtons}>
             <Checkbox
-              style={this.styles.radioButton}
+              style={styles.radioButton}
               text={'Matin'}
               onPress={() => this.handleTouchTap('morning')}
               isChecked={this.state.slot === 'morning' ? true : false}
               isRadioButton
             />
             <Checkbox
-              style={this.styles.radioButton}
+              style={styles.radioButton}
               text={'Midi'}
               onPress={() => this.handleTouchTap('lunch')}
               isChecked={this.state.slot === 'lunch' ? true : false}
               isRadioButton
             />
           </View>
-          <View style={this.styles.radioButtons}>
+          <View style={styles.radioButtons}>
             <Checkbox
-              style={this.styles.radioButton}
+              style={styles.radioButton}
               text={'Après-midi'}
               onPress={() => this.handleTouchTap('afternoon')}
               isChecked={this.state.slot === 'afternoon' ? true : false}
               isRadioButton
             />
             <Checkbox
-              style={this.styles.radioButton}
+              style={styles.radioButton}
               text={'Soir'}
               onPress={() => this.handleTouchTap('evening')}
               isChecked={this.state.slot === 'evening' ? true : false}
@@ -81,7 +71,7 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
             />
           </View>
         </View>
-        <View style={this.styles.buttonsContainer}>
+        <View style={styles.buttonsContainer}>
           <FullButton onPress={this.sendMessageToClient} title="Envoyer" disabled={!this.state.slot} />
           <FullButton
             onPress={() => this.props.navigation.navigate('clients')}
@@ -93,33 +83,6 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
     );
   }
 }
-
-const getStyles = () =>
-  StyleSheet.create({
-    container: {
-      marginVertical: 15,
-      flexDirection: 'row',
-    },
-    radioButtons: {
-      width: 150,
-    },
-    radioButton: {
-      marginVertical: 5,
-    },
-    message: {
-      height: 140,
-      fontSize: 18,
-    },
-    text: {
-      fontSize: 20,
-      marginTop: 8,
-    },
-    buttonsContainer: {
-      height: 100,
-      justifyContent: 'space-around',
-      alignItems: 'center',
-    },
-  });
 
 type StateType = {
   slot: string,
@@ -135,3 +98,29 @@ const mapDispatchToProps: DispatchProps = {
 };
 
 export default connect(null, mapDispatchToProps)(Message);
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 15,
+    flexDirection: 'row',
+  },
+  radioButtons: {
+    width: 150,
+  },
+  radioButton: {
+    marginVertical: 5,
+  },
+  message: {
+    height: 140,
+    fontSize: 18,
+  },
+  text: {
+    fontSize: 20,
+    marginTop: 8,
+  },
+  buttonsContainer: {
+    height: 100,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+});

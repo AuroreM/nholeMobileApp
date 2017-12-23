@@ -4,14 +4,6 @@ import React, { PropTypes } from 'react';
 import { View, StyleSheet } from 'react-native';
 import theme from 'nholeMobileApp/src/theme';
 
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-  },
-});
-
 export default (props: PropsType) => (
   <View
     style={[
@@ -33,3 +25,11 @@ type PropsType = {
   noNavBar?: boolean,
   backgroundColor: string,
 };
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+  },
+});

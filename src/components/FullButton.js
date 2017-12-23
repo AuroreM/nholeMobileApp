@@ -5,7 +5,6 @@ import Button from './Button';
 
 class FullButton extends Component<Props, void> {
   render() {
-    const styles = getStyles();
     const { title, secondaryButton, ...rest } = this.props;
     return (
       <Button {...rest}>
@@ -22,27 +21,27 @@ type Props = {
   secondaryButton?: boolean,
 };
 
-const getStyles = () =>
-  StyleSheet.create({
-    button: {
-      backgroundColor: 'rgb(64,64,64)',
-      borderRadius: 5,
-      width: 200,
-      height: 40,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    secondaryButton: {
-      backgroundColor: 'transparent',
-      borderWidth: 0,
-    },
-    buttonText: {
-      color: 'rgb(30,144,255)',
-      fontSize: 18,
-    },
-    secondaryButtonText: {
-      color: 'rgb(64,64,64)',
-      fontSize: 16,
-    },
-  });
 export default FullButton;
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: 'rgb(64,64,64)',
+    borderRadius: 5,
+    width: 200,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  secondaryButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+  },
+  buttonText: {
+    color: 'rgb(30,144,255)',
+    fontSize: 18,
+  },
+  secondaryButtonText: {
+    color: 'rgb(64,64,64)',
+    fontSize: 16,
+  },
+});

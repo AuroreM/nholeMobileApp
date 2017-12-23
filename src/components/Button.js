@@ -2,13 +2,6 @@
 import * as React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 
-const styles = StyleSheet.create({
-  button: {
-    opacity: 0.9,
-    backgroundColor: 'transparent',
-  },
-});
-
 export default (props: Props) => {
   const { style, disabled, children, ...rest } = props;
   const MaybeTouchable = disabled || !props.onPress ? View : TouchableOpacity;
@@ -24,3 +17,10 @@ type Props = {
   children?: any,
   disabled?: boolean,
 };
+
+const styles = StyleSheet.create({
+  button: {
+    opacity: 0.9,
+    backgroundColor: 'transparent',
+  },
+});
