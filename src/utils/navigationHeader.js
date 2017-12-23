@@ -8,7 +8,7 @@ export default (title: string, headerLeft: ?boolean = null) => {
       height: 60,
     },
     headerTitleStyle: {
-      fontSize: 28,
+      fontSize: theme.fontSize.header,
       fontWeight: '200',
       color: theme.color.blue,
     },

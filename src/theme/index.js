@@ -3,14 +3,10 @@
 const gridSize = 8;
 
 export default {
-  fonts: {
-    header: {
-      fontSize: 20,
-      fontWeight: 'bold',
-    },
-    default: {
-      fontSize: 16,
-    },
+  fontSize: {
+    header: 28,
+    normal: 20,
+    small: 16,
   },
   color: {
     blue: 'rgb(30,144,255)',

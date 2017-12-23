@@ -10,6 +10,7 @@ import type { NavigationScreenProp } from 'react-navigation';
 import { Page, TextField, Checkbox, FullButton } from 'nholeMobileApp/src/components';
 import { addClient } from '../../modules/Clients';
 import navigationHeader from '../../utils/navigationHeader';
+import theme from 'nholeMobileApp/src/theme';
 
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Nouveau Client', true);
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     width: 150,
   },
   instruction: {
-    fontSize: 18,
+    fontSize: theme.fontSize.normal,
     fontWeight: 'bold',
     marginBottom: 5,
   },

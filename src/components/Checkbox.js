@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   label: {
     opacity: 0.65,
     color: theme.color.gray,
-    fontSize: 20,
+    fontSize: theme.fontSize.normal,
     textAlign: 'justify',
     marginLeft: 15,
   },

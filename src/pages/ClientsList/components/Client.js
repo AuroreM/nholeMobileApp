@@ -39,11 +39,10 @@ class Client extends React.Component<Props, void> {
           </TouchableOpacity>
         </View>
         <View style={styles.infoContainer}>
-          <Text>N° de téléphone : </Text>
-          <Text>{this.props.client.number}</Text>
+          <Text style={styles.text}>N° de téléphone : {this.props.client.number}</Text>
         </View>
         <View style={styles.infoContainer}>
-          <Text>Créneaux : </Text>
+          <Text style={styles.text}>Créneaux : </Text>
           <Text style={styles.info}>{this.renderSlotsString()}</Text>
         </View>
       </View>
@@ -67,17 +66,20 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   name: {
-    fontSize: 18,
+    fontSize: theme.fontSize.normal,
     fontWeight: 'bold',
   },
   infoContainer: {
     flexDirection: 'row',
   },
   info: {
-    fontSize: 14,
     fontWeight: 'bold',
+    fontSize: theme.fontSize.small,
   },
   icon: {
     color: theme.color.red,
+  },
+  text: {
+    fontSize: theme.fontSize.small,
   },
 });

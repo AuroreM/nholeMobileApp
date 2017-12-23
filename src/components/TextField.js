@@ -2,6 +2,8 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
+import theme from 'nholeMobileApp/src/theme';
+
 class TextField extends React.Component<Props, void> {
   render() {
     const { input, disabled, placeholder, secureTextEntry, ...otherProps } = this.props;
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
   textInput: {
     height: 42,
     color: '#808080',
-    fontSize: 20,
+    fontSize: theme.fontSize.normal,
     paddingVertical: 10,
   },
 });

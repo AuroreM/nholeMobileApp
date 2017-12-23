@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
   },
   message: {
     height: 140,
-    fontSize: 18,
+    fontSize: theme.fontSize.normal,
   },
   text: {
-    fontSize: 20,
+    fontSize: theme.fontSize.normal,
     marginTop: 8,
   },
   buttonsContainer: {

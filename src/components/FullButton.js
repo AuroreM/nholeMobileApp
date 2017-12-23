@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: theme.color.blue,
-    fontSize: 18,
+    fontSize: theme.fontSize.normal,
   },
   secondaryButtonText: {
     color: theme.color.gray,
-    fontSize: 16,
+    fontSize: theme.fontSize.normal,
   },
 });
