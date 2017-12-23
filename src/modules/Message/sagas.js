@@ -6,26 +6,26 @@ import { baseUrl } from '../../config';
 import { tokenSelector } from '../User';
 
 export function* sendMessageSaga(action) {
-  const requestURL = `${baseUrl()}/api/Clients/byAuth`;
+  const requestURL = `${baseUrl()}/api/Clients/byAuth/slot`;
   const token = yield select(tokenSelector);
-  const clients = yield call(
-    request,
-    `${requestURL}?filter[where][${action.payload.slot}]=true&access_token=${token}`,
-    {
+  try {
+    const clients = yield call(request, `${requestURL}?slot=${action.payload.slot}&access_token=${token}`, {
       method: 'GET',
-    }
-  );
-  const clientsNumbers = clients.map(client => client.number);
-  SendSMS.send(
-    {
-      body: action.payload.message,
-      recipients: clientsNumbers,
-      successTypes: ['sent', 'queued'],
-    },
-    (completed, cancelled, error) => {
-      console.log('SMS Callback: completed: ' + completed + ' cancelled: ' + cancelled + 'error: ' + error);
-    }
-  );
+    });
+    const clientsNumbers = clients.map(client => client.number);
+    SendSMS.send(
+      {
+        body: action.payload.message,
+        recipients: clientsNumbers,
+        successTypes: ['sent', 'queued'],
+      },
+      (completed, cancelled, error) => {
+        console.log('SMS Callback: completed: ' + completed + ' cancelled: ' + cancelled + 'error: ' + error);
+      }
+    );
+  } catch (e) {
+    console.warn('Failure in sendMessageSaga', e);
+  }
 }
 
 export function* MessageSaga() {
