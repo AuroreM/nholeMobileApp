@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'space-between',
-    marginVertical: 5,
+    marginVertical: theme.margin.vertical.small,
   },
   name: {
     fontSize: theme.fontSize.normal,

@@ -9,6 +9,7 @@ import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../.
 import { Page, FullButton } from 'nholeMobileApp/src/components';
 import navigationHeader from '../../utils/navigationHeader';
 import type { ExistingClientType } from '../../modules/Clients/reducer';
+import theme from 'nholeMobileApp/src/theme';
 
 class ClientsList extends React.Component<DispatchProps & StateProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Clients', true);
@@ -26,7 +27,7 @@ class ClientsList extends React.Component<DispatchProps & StateProps & Navigatio
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <View style={styles.buttonContainer}>
+        <View style={theme.buttonContainer}>
           <FullButton
             onPress={() => this.props.navigation.navigate('clientAddition')}
             title={'Ajouter un client'}
@@ -71,11 +72,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(ClientsList);
 
 const styles = StyleSheet.create({
   clientContainer: {
-    marginVertical: 10,
-  },
-  buttonContainer: {
-    marginBottom: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginVertical: theme.margin.vertical.normal,
   },
 });

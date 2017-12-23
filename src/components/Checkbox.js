@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     color: theme.color.gray,
     fontSize: theme.fontSize.normal,
     textAlign: 'justify',
-    marginLeft: 15,
+    marginLeft: theme.margin.horizontal.normal,
   },
   labelIfChecked: {
     opacity: 1,

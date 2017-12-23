@@ -10,6 +10,7 @@ import type { NavigationScreenProp } from 'react-navigation';
 import { Page, TextField, FullButton } from 'nholeMobileApp/src/components';
 import { login } from '../../modules/User';
 import navigationHeader from '../../utils/navigationHeader';
+import theme from 'nholeMobileApp/src/theme';
 
 class Login extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Login');
@@ -48,7 +49,7 @@ export default enhance(Login);
 
 const styles = StyleSheet.create({
   buttonsContainer: {
-    marginTop: 8,
+    marginTop: theme.margin.vertical.normal,
     height: 100,
     justifyContent: 'space-around',
     alignItems: 'center',

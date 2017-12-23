@@ -39,7 +39,7 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
             <Field name="evening" component={this.renderField('Soir')} />
           </View>
         </View>
-        <View style={styles.buttonContainer}>
+        <View style={theme.buttonContainer}>
           <FullButton onPress={this.props.handleSubmit} title="Enregistrer" />
         </View>
       </Page>
@@ -63,7 +63,7 @@ export default enhance(ClientAddition);
 
 const styles = StyleSheet.create({
   infoContainer: {
-    marginVertical: 5,
+    marginVertical: theme.margin.vertical.small,
   },
   slotsContainer: {
     flexDirection: 'row',
@@ -74,11 +74,6 @@ const styles = StyleSheet.create({
   instruction: {
     fontSize: theme.fontSize.normal,
     fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  buttonContainer: {
-    marginVertical: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginBottom: theme.margin.vertical.small,
   },
 });

@@ -102,14 +102,14 @@ export default connect(null, mapDispatchToProps)(Message);
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 15,
+    marginVertical: theme.margin.vertical.normal,
     flexDirection: 'row',
   },
   radioButtons: {
     width: 150,
   },
   radioButton: {
-    marginVertical: 5,
+    marginVertical: theme.margin.vertical.small,
   },
   message: {
     height: 140,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: theme.fontSize.normal,
-    marginTop: 8,
+    marginTop: theme.margin.vertical.normal,
   },
   buttonsContainer: {
     height: 100,
