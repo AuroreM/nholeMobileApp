@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect, DispatchProp } from 'react-redux';
 import { compose } from 'recompose';
