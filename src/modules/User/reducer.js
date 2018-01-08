@@ -9,6 +9,10 @@ const userReducer = (state: UserStateType = { token: '' }, action: ActionType): 
   switch (action.type) {
     default:
       break;
+    case 'LOGOUT':
+      return {
+        token: '',
+      };
     case 'SET_TOKEN':
       return {
         token: action.payload.token,

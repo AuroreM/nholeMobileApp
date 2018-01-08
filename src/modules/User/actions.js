@@ -7,6 +7,8 @@ export const login = (email: string, password: string): ActionType => ({
   },
 });
 
+export const logout = (): ActionType => ({ type: 'LOGOUT' });
+
 export const signup = (email: string, password: string): ActionType => ({
   type: 'SIGNUP',
   payload: {
@@ -26,6 +28,9 @@ export type ActionType =
   | {|
       type: 'LOGIN',
       payload: { email: string, password: string },
+    |}
+  | {|
+      type: 'LOGOUT',
     |}
   | {|
       type: 'SET_TOKEN',

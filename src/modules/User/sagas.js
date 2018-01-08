@@ -67,20 +67,25 @@ export function* signupSaga(action) {
   }
 }
 
+export function* logoutSaga(): Generator<*, *, *> {
+  AuthenticationManager.clear();
+  yield put(NavigationActions.reset({ index: 0, actions: [NavigationActions.navigate({ routeName: 'login' })] }));
+}
+
 export function* appHasComeBackToForeground(): Generator<*, *, *> {
   try {
     const token = yield select(tokenSelector);
     yield call(getClientsListCall, token);
   } catch (e) {
     if (e.status === 401) {
-      AuthenticationManager.clear();
-      NavigationActions.reset({ routeName: 'login' });
+      yield call(logoutSaga);
     }
   }
 }
 
 export function* UserSaga() {
   yield takeLatest('LOGIN', loginSaga);
+  yield takeLatest('LOGOUT', logoutSaga);
   yield takeLatest('SIGNUP', signupSaga);
   yield takeLatest(FOREGROUND, appHasComeBackToForeground);
 }

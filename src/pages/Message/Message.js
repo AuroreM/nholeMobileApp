@@ -7,6 +7,7 @@ import type { NavigationScreenProp } from 'react-navigation';
 
 import { Page, Checkbox, FullButton } from 'nholeMobileApp/src/components';
 import { sendMessage } from '../../modules/Message/actions';
+import { logout } from '../../modules/User/actions';
 import navigationHeader from '../../utils/navigationHeader';
 import theme from 'nholeMobileApp/src/theme';
 
@@ -80,6 +81,9 @@ class Message extends Component<DispatchProps & NavigationScreenProp, StateType>
             secondaryButton
           />
         </View>
+        <View style={styles.logoutButtonContainer}>
+          <FullButton onPress={this.props.logout} title="Se déconnecter" secondaryButton />
+        </View>
       </Page>
     );
   }
@@ -92,10 +96,12 @@ type StateType = {
 
 type DispatchProps = {
   sendMessage: Function,
+  logout: Function,
 };
 
 const mapDispatchToProps: DispatchProps = {
   sendMessage,
+  logout,
 };
 
 export default connect(null, mapDispatchToProps)(Message);
@@ -118,5 +124,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: theme.fontSize.normal,
     marginTop: theme.margin.vertical.normal,
+  },
+  logoutButtonContainer: {
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flex: 1,
+    paddingVertical: theme.padding.vertical.normal,
   },
 });
