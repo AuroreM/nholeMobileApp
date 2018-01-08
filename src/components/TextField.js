@@ -17,6 +17,7 @@ class TextField extends React.Component<Props, void> {
         {...input}
         value={this.props.input.value}
         placeholder={placeholder}
+        {...otherProps}
       />
     );
   }

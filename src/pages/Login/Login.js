@@ -22,7 +22,7 @@ class Login extends Component<DispatchProps & NavigationScreenProp, void> {
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <Field name="email" placeholder="Email" component={TextField} type="email" />
+        <Field name="email" placeholder="Email" component={TextField} type="email" autoCapitalize="none" />
         <Field name="password" placeholder="Mot de passe" component={TextField} type="password" secureTextEntry />
         <View style={theme.buttonsContainer}>
           <FullButton title="Login" onPress={this.props.handleSubmit} />
