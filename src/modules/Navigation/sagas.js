@@ -1,6 +1,7 @@
 // @flow
 import { takeLatest, put } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
+
 import type { ActionType } from './actions';
 
 export function* navigateToSaga(action: ActionType): Generator<*, *, *> {

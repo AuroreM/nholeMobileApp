@@ -12,4 +12,8 @@ export default class AuthenticationTokenManager {
   static set(token: string): Promise<void> {
     return AsyncStorage.setItem('jwtToken', token).catch(e => console.warn('Error setting JWT token', e));
   }
+
+  static clear(): Promise<void> {
+    return AsyncStorage.clear();
+  }
 }

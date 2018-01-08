@@ -23,8 +23,7 @@ function checkStatus(response) {
     return response;
   }
 
-  const error = new Error(response.statusText, { status: response.status });
-  throw error;
+  throw response;
 }
 
 /**

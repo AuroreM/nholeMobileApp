@@ -1,10 +1,13 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
+import { FOREGROUND } from 'redux-enhancer-react-native-appstate';
 
 import request from '../../utils/request';
 import { setToken } from './actions';
 import { baseUrl } from '../../config';
+import { getClientsListCall } from '../Clients/sagas';
 import AuthenticationManager from '../../utils/authenticationManager';
+import { tokenSelector } from './selectors';
 // import { handleToastr } /from '../../modules/Toastr/actions';
 
 export function* loginCall(params) {
@@ -64,9 +67,22 @@ export function* signupSaga(action) {
   }
 }
 
+export function* appHasComeBackToForeground(): Generator<*, *, *> {
+  try {
+    const token = yield select(tokenSelector);
+    yield call(getClientsListCall, token);
+  } catch (e) {
+    if (e.status === 401) {
+      AuthenticationManager.clear();
+      NavigationActions.reset({ routeName: 'login' });
+    }
+  }
+}
+
 export function* UserSaga() {
   yield takeLatest('LOGIN', loginSaga);
   yield takeLatest('SIGNUP', signupSaga);
+  yield takeLatest(FOREGROUND, appHasComeBackToForeground);
 }
 
 export default UserSaga;

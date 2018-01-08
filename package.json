@@ -15,6 +15,7 @@
     "react-redux": "^5.0.6",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
+    "redux-enhancer-react-native-appstate": "^0.3.0",
     "redux-form": "^7.1.2",
     "redux-saga": "^0.16.0",
     "whatwg-fetch": "^2.0.3"
@@ -32,10 +33,16 @@
     "globals": {
       "__DEV__": true
     },
-    "transformIgnorePatterns": ["node_modules/(?!react-native|react-navigation)"],
-    "setupFiles": ["./jest/setup.js"]
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ],
+    "setupFiles": [
+      "./jest/setup.js"
+    ]
   },
   "rnpm": {
-    "assets": ["resources"]
+    "assets": [
+      "resources"
+    ]
   }
 }

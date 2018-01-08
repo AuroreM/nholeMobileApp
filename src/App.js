@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import applyAppStateListener from 'redux-enhancer-react-native-appstate';
 
 import reducers from './modules/reducers';
 import RootNavigator from './RootNavigation';
@@ -19,7 +20,11 @@ const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 if (typeof composeWithDevToolsExtension === 'function') {
   composeEnhancers = composeWithDevToolsExtension;
 }
-const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(sagaMiddleWare), ...enhancers));
+const store = createStore(
+  reducers,
+  {},
+  composeEnhancers(applyAppStateListener(), applyMiddleware(sagaMiddleWare), ...enhancers)
+);
 sagaMiddleWare.run(rootSaga);
 
 export default class App extends Component<void, void> {

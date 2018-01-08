@@ -3583,6 +3583,10 @@ recompose@^0.26.0:
     hoist-non-react-statics "^2.3.1"
     symbol-observable "^1.0.4"
 
+redux-enhancer-react-native-appstate@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/redux-enhancer-react-native-appstate/-/redux-enhancer-react-native-appstate-0.3.0.tgz#fb917093758ce09f432cd0b2b563d1361e8f576f"
+
 redux-form@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-7.1.2.tgz#6b0f25c57fd8130a05ce00f6435fe1b051f402af"
