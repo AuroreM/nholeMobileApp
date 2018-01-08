@@ -20,7 +20,7 @@ exports[`<FullButton /> renders correctly 1`] = `
           "alignItems": "center",
           "backgroundColor": "rgb(64,64,64)",
           "borderRadius": 5,
-          "height": 40,
+          "height": 42,
           "justifyContent": "center",
           "width": 200,
         },
@@ -36,7 +36,7 @@ exports[`<FullButton /> renders correctly 1`] = `
         Array [
           Object {
             "color": "rgb(30,144,255)",
-            "fontSize": 18,
+            "fontSize": 20,
           },
           undefined,
         ]
@@ -68,7 +68,7 @@ exports[`<FullButton /> renders correctly when it is a secondary Button 1`] = `
           "alignItems": "center",
           "backgroundColor": "rgb(64,64,64)",
           "borderRadius": 5,
-          "height": 40,
+          "height": 42,
           "justifyContent": "center",
           "width": 200,
         },
@@ -87,11 +87,11 @@ exports[`<FullButton /> renders correctly when it is a secondary Button 1`] = `
         Array [
           Object {
             "color": "rgb(30,144,255)",
-            "fontSize": 18,
+            "fontSize": 20,
           },
           Object {
             "color": "rgb(64,64,64)",
-            "fontSize": 16,
+            "fontSize": 20,
           },
         ]
       }

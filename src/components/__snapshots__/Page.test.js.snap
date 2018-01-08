@@ -31,7 +31,7 @@ exports[`<Page /> renders correctly without navBar 1`] = `
       Object {
         "backgroundColor": "#fff",
         "paddingHorizontal": 24,
-        "paddingTop": 0,
+        "paddingTop": 16,
       },
     ]
   }
@@ -49,7 +49,7 @@ exports[`<Page /> renders correctly without noMargin 1`] = `
       },
       Object {
         "backgroundColor": "#fff",
-        "paddingHorizontal": 0,
+        "paddingHorizontal": 24,
         "paddingTop": 16,
       },
     ]
