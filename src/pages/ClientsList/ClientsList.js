@@ -5,7 +5,7 @@ import { View, FlatList, StyleSheet, ScrollView } from 'react-native';
 import type { NavigationScreenProp } from 'react-navigation';
 
 import Client from './components/Client';
-import { getClients, deleteClient, updateClientsListAfterOneDeleted } from '../../modules/Clients/';
+import { getClients, deleteClient, updateClientsListAfterOneDeleted, clientsSelector } from '../../modules/Clients/';
 import { Page, FullButton } from 'nholeMobileApp/src/components';
 import navigationHeader from '../../utils/navigationHeader';
 import type { ExistingClientType } from '../../modules/Clients/reducer';
@@ -70,7 +70,7 @@ const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
 
 const mapStateToProps = (state): StateProps => ({
   // loading: state.loading,
-  clients: state.clients.list,
+  clients: clientsSelector(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientsList);
