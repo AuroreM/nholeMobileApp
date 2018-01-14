@@ -6,6 +6,7 @@ import { submit as submitForm } from 'redux-form';
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
+import { addClient } from '../../modules/Clients';
 import { Page, FullButton, Checkbox } from 'nholeMobileApp/src/components';
 import navigationHeader from '../../utils/navigationHeader';
 import theme from 'nholeMobileApp/src/theme';
@@ -25,7 +26,7 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <ClientAdditionForm />
+        <ClientAdditionForm onSubmitForm={this.props.onSubmitForm} />
         <View style={theme.buttonContainer}>
           <FullButton onPress={this.register} title="Enregistrer" />
         </View>
@@ -40,6 +41,7 @@ type DispatchProps = {
 
 const mapDispatchToProps: DispatchProps = {
   submitForm,
+  onSubmitForm: addClient,
 };
 
 export default connect(null, mapDispatchToProps)(ClientAddition);

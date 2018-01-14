@@ -7,7 +7,6 @@ import { compose } from 'recompose';
 import { connect } from 'react-redux';
 
 import { TextField, Checkbox } from 'nholeMobileApp/src/components';
-import { addClient } from '../../../modules/Clients';
 import theme from 'nholeMobileApp/src/theme';
 
 class ClientAdditionForm extends Component<DispatchProps, void> {
@@ -43,8 +42,8 @@ type DispatchProps = {
   onSubmit: Function,
 };
 
-const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  onSubmit: values => dispatch(addClient(values)),
+const mapDispatchToProps = (dispatch: Function, ownProps: any): DispatchProps => ({
+  onSubmit: values => ownProps.onSubmitForm(values),
 });
 
 const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'clientAddition' }));

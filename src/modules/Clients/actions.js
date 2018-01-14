@@ -1,5 +1,5 @@
 // @flow
-import type { NewClientType } from './reducer';
+import type { NewClientType, ClientType } from './reducer';
 
 export const getClients = (): ActionType => {
   return {
@@ -35,9 +35,34 @@ export const addClient = (client: NewClientType): ActionType => ({
   },
 });
 
+export const editClient = (client: ClientType): ActionType => ({
+  type: 'EDIT_CLIENT',
+  payload: {
+    client,
+  },
+});
+
+export const closeClientEditionModal = (clientId: string): ActionType => ({
+  type: 'CLOSE_CLIENT_EDITION_MODAL',
+  payload: { clientId },
+});
+
+export const openClientEditionModal = (clientId: string): ActionType => ({
+  type: 'OPEN_CLIENT_EDITION_MODAL',
+  payload: { clientId },
+});
+
 export type ActionType =
   | {|
       type: 'GET_CLIENTS',
+    |}
+  | {|
+      type: 'OPEN_CLIENT_EDITION_MODAL',
+      payload: { clientId: string },
+    |}
+  | {|
+      type: 'CLOSE_CLIENT_EDITION_MODAL',
+      payload: { clientId: string },
     |}
   | {|
       type: 'DELETE_CLIENT',
@@ -50,6 +75,10 @@ export type ActionType =
   | {|
       type: 'ADD_CLIENT',
       payload: { client: NewClientType },
+    |}
+  | {|
+      type: 'EDIT_CLIENT',
+      payload: { client: ClientType },
     |}
   | {|
       type: 'GET_CLIENTS_SUCCESS',

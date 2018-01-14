@@ -19,7 +19,13 @@ class ClientsList extends React.Component<DispatchProps & StateProps & Navigatio
   }
 
   renderClient = ({ item }: { item: ExistingClientType }) => (
-    <Client style={styles.clientContainer} client={item} key={item.id} deleteClient={this.props.deleteClient} />
+    <Client
+      style={styles.clientContainer}
+      client={item}
+      key={item.id}
+      deleteClient={this.props.deleteClient}
+      onSubmitForm={this.props.onSubmitForm}
+    />
   );
   keyExtractor = (item: ExistingClientType) => String(item.id);
 

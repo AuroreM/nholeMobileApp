@@ -17,6 +17,7 @@ export default {
     ligthGray: '#808080',
   },
   margin: {
+    modal: 35,
     vertical: {
       normal: MARGIN_VERTICAL_NORMAL,
       small: 5,

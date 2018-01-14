@@ -3,7 +3,7 @@ import { reset } from 'redux-form';
 import { NavigationActions } from 'react-navigation';
 
 import request from '../../utils/request';
-import { getClientsSuccess } from './actions';
+import { getClientsSuccess, closeClientEditionModal } from './actions';
 import { baseUrl } from '../../config';
 import { tokenSelector } from '../User';
 import showToast from '../../utils/toast';
@@ -74,10 +74,31 @@ export function* addClientSaga(action) {
   }
 }
 
+export function* editClientSaga(action) {
+  const token = yield select(tokenSelector);
+  const requestURL = `${baseUrl()}/api/Clients?access_token=${token}`;
+  const body = JSON.stringify(action.payload.client);
+  try {
+    yield call(request, requestURL, {
+      method: 'PUT',
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    yield call(getClientsListSaga);
+    showToast('Client modifié !');
+    yield put(closeClientEditionModal(action.payload.client.id));
+  } catch (err) {
+    showToast('La modification a échoué, veuillez réessayer plus tard');
+  }
+}
+
 export function* ClientsSaga() {
   yield takeLatest('DELETE_CLIENT', deleteClientSaga);
   yield takeLatest('GET_CLIENTS', getClientsListSaga);
   yield takeLatest('ADD_CLIENT', addClientSaga);
+  yield takeLatest('EDIT_CLIENT', editClientSaga);
 }
 
 export default [ClientsSaga];
