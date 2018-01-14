@@ -10,6 +10,7 @@
     "react": "16.0.0",
     "react-native": "0.50.4",
     "react-native-sms": "https://github.com/AuroreM/react-native-sms#2283a3780d8742c96051fe4d77b28800a052a85d",
+    "react-native-toast-native": "^1.2.1",
     "react-native-vector-icons": "^4.4.3",
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",

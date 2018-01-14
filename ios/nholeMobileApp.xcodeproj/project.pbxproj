@@ -47,6 +47,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		860498EA5EB9404096B0368C /* libSendSMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D24F6A80754F82ADF2E8FA /* libSendSMS.a */; };
 		89A4B4E11116479C8F2DE6AB /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 049078021ED24DD5895BDC99 /* Zocial.ttf */; };
+		983CA6ABBA3E407C8D8458E7 /* libRNToastNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541A26317009423D9E8AA52F /* libRNToastNative.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F355EE2E9A584165A5B4045B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15125D9146C0483BB64B080C /* Ionicons.ttf */; };
 		FC129B6FC2F74D08A63A172C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78A035AD39964E2DA749E348 /* MaterialIcons.ttf */; };
@@ -326,6 +327,13 @@
 			remoteGlobalIDString = 95688E1A1D38251600F72D63;
 			remoteInfo = SendSMS;
 		};
+		DBABCBAF2006C59D00C65691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 476010A6F6BA4A459F99253A /* RNToastNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNToastNative;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -356,7 +364,9 @@
 		217D962637FC451D865B3049 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* nholeMobileApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nholeMobileApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* nholeMobileApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nholeMobileApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		476010A6F6BA4A459F99253A /* RNToastNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNToastNative.xcodeproj; path = "../node_modules/react-native-toast-native/ios/RNToastNative.xcodeproj"; sourceTree = "<group>"; };
 		4DEB87F16F5D493DB98AE196 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		541A26317009423D9E8AA52F /* libRNToastNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNToastNative.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		72D24F6A80754F82ADF2E8FA /* libSendSMS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSendSMS.a; sourceTree = "<group>"; };
 		7668C11D94134677A88A4230 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -399,6 +409,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				7AB75597170248B5A3AF409C /* libRNVectorIcons.a in Frameworks */,
 				860498EA5EB9404096B0368C /* libSendSMS.a in Frameworks */,
+				983CA6ABBA3E407C8D8458E7 /* libRNToastNative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +605,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				217D962637FC451D865B3049 /* RNVectorIcons.xcodeproj */,
 				CB7DA348C7C24B2FAF9DEB11 /* SendSMS.xcodeproj */,
+				476010A6F6BA4A459F99253A /* RNToastNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -647,6 +659,7 @@
 			children = (
 				14562D3142E44B8DA3457129 /* libRNVectorIcons.a */,
 				72D24F6A80754F82ADF2E8FA /* libSendSMS.a */,
+				541A26317009423D9E8AA52F /* libRNToastNative.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -663,6 +676,14 @@
 			isa = PBXGroup;
 			children = (
 				DB4DF9141FEBCC9E00888D82 /* libSendSMS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBABCB892006C59D00C65691 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBABCBB02006C59D00C65691 /* libRNToastNative.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -828,6 +849,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = DBABCB892006C59D00C65691 /* Products */;
+					ProjectRef = 476010A6F6BA4A459F99253A /* RNToastNative.xcodeproj */;
 				},
 				{
 					ProductGroup = DB4DF87F1FEBB5CC00888D82 /* Products */;
@@ -1108,6 +1133,13 @@
 			remoteRef = DB4DF9131FEBCC9E00888D82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		DBABCBB02006C59D00C65691 /* libRNToastNative.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNToastNative.a;
+			remoteRef = DBABCBAF2006C59D00C65691 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1261,12 +1293,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = nholeMobileAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1288,12 +1322,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = nholeMobileAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1319,6 +1355,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = nholeMobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1344,6 +1381,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = nholeMobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1373,11 +1411,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = "nholeMobileApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1409,11 +1449,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sms/SendSMS",
+					"$(SRCROOT)/../node_modules/react-native-toast-native/ios",
 				);
 				INFOPLIST_FILE = "nholeMobileApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1446,6 +1488,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.nholeMobileApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1470,6 +1513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

@@ -8,37 +8,31 @@ import { baseUrl } from '../../config';
 import { getClientsListCall } from '../Clients/sagas';
 import AuthenticationManager from '../../utils/authenticationManager';
 import { tokenSelector } from './selectors';
-// import { handleToastr } /from '../../modules/Toastr/actions';
+import showToast from '../../utils/toast';
 
 export function* loginCall(params) {
   const requestURL = `${baseUrl()}/api/Users/login`;
-  try {
-    const response = yield call(request, requestURL, {
-      method: 'POST',
-      body: JSON.stringify(params),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    AuthenticationManager.set(JSON.stringify(response));
-    yield put(setToken(response.id));
-    return true;
-  } catch (e) {
-    // yield put(handleToastr("L'authentification a échoué, veuillez vérifier votre email et votre mot de passe"));
-    console.warn(`Login failure ${e}`);
-    return false;
-  }
+  const response = yield call(request, requestURL, {
+    method: 'POST',
+    body: JSON.stringify(params),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  AuthenticationManager.set(JSON.stringify(response));
+  yield put(setToken(response.id));
 }
 
 export function* loginSaga(action) {
-  const response = yield call(loginCall, {
-    email: action.payload.email,
-    password: action.payload.password,
-  });
-  if (response) {
+  try {
+    yield call(loginCall, {
+      email: action.payload.email,
+      password: action.payload.password,
+    });
     yield put(NavigationActions.navigate({ routeName: 'message' }));
-  } else {
-    // show toast message
+  } catch (e) {
+    showToast("L'authentification a échoué, veuillez vérifier votre email et votre mot de passe");
+    console.warn(`Login failure ${e}`);
   }
 }
 
@@ -61,8 +55,8 @@ export function* signupSaga(action) {
       password: action.payload.password,
     });
     yield put(NavigationActions.navigate({ routeName: 'message' }));
-    // yield put(handleToastr('Votre compte a bien été créé.'));
   } catch (e) {
+    showToast("L'enregistrement a échoué, réessayer plus tard");
     console.warn(`Signup failure ${e}`);
   }
 }
@@ -78,6 +72,7 @@ export function* appHasComeBackToForeground(): Generator<*, *, *> {
     yield call(getClientsListCall, token);
   } catch (e) {
     if (e.status === 401) {
+      showToast('Votre session a expiré, veuillez vous authentifier à nouveau');
       yield call(logoutSaga);
     }
   }

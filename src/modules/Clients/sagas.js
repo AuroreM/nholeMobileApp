@@ -1,10 +1,12 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { reset } from 'redux-form';
+import { NavigationActions } from 'react-navigation';
 
 import request from '../../utils/request';
 import { getClientsSuccess } from './actions';
 import { baseUrl } from '../../config';
 import { tokenSelector } from '../User';
+import showToast from '../../utils/toast';
 
 export function* getClientsListCall(token) {
   const requestURL = `${baseUrl()}/api/Clients/byAuth`;
@@ -28,12 +30,17 @@ export function* deleteClientSaga(action) {
   const requestBaseUrl = `${baseUrl()}/api/Clients`;
   const token = yield select(tokenSelector);
   const requestURL = `${requestBaseUrl}/${action.payload.clientId}?access_token=${token}`;
-  yield call(request, requestURL, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    yield call(request, requestURL, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    showToast('Client supprimé');
+  } catch (e) {
+    showToast('La suppression a échoué, veuillez réessayer plus tard');
+  }
 }
 
 export function* addClientSaga(action) {
@@ -59,10 +66,11 @@ export function* addClientSaga(action) {
       },
     });
     yield call(getClientsListSaga);
+    yield put(NavigationActions.back());
+    showToast('Client enregistré !');
     yield put(reset('clientAddition'));
-    // yield put(handleToastr('Client enregistré !'));
   } catch (err) {
-    // yield put(handleToastr("Un problème est survenu lors de l'enregistrement"));
+    showToast("L'enregistrment a échoué, veuillez réessayer plus tard");
   }
 }
 
