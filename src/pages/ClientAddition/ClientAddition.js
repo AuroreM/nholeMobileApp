@@ -1,16 +1,15 @@
 //@flow
 
 import React, { Component } from 'react';
-import { View, Text, Keyboard, StyleSheet } from 'react-native';
-import { Field, reduxForm } from 'redux-form';
-import { compose } from 'recompose';
+import { View, Keyboard } from 'react-native';
+import { submit as submitForm } from 'redux-form';
 import { connect } from 'react-redux';
 import type { NavigationScreenProp } from 'react-navigation';
 
-import { Page, TextField, Checkbox, FullButton } from 'nholeMobileApp/src/components';
-import { addClient } from '../../modules/Clients';
+import { Page, FullButton, Checkbox } from 'nholeMobileApp/src/components';
 import navigationHeader from '../../utils/navigationHeader';
 import theme from 'nholeMobileApp/src/theme';
+import ClientAdditionForm from './components/ClientAdditionForm';
 
 class ClientAddition extends Component<DispatchProps & NavigationScreenProp, void> {
   static navigationOptions = navigationHeader('Nouveau Client', true);
@@ -19,28 +18,16 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
     <Checkbox text={text} onPress={() => onChange(!value)} isChecked={value} />
   );
 
+  register = () => {
+    Keyboard.dismiss();
+    this.props.submitForm('clientAddition');
+  };
   render() {
     return (
       <Page backgroundColor={'#fff'}>
-        <View style={styles.infoContainer}>
-          <Text style={styles.instruction}>Renseignez ses informations</Text>
-          <Field name="firstname" placeholder="Prénom" component={TextField} type="string" />
-          <Field name="lastname" placeholder="Nom" component={TextField} type="string" />
-          <Field name="number" placeholder="Numéro de téléphone" component={TextField} type="string" />
-        </View>
-        <Text style={styles.instruction}>Choisissez ses créneaux</Text>
-        <View style={styles.slotsContainer}>
-          <View style={styles.twoSlotsContainer}>
-            <Field name="morning" component={this.renderField('Matin')} />
-            <Field name="lunch" component={this.renderField('Midi')} />
-          </View>
-          <View style={styles.twoSlotsContainer}>
-            <Field name="afternoon" component={this.renderField('Après-midi')} />
-            <Field name="evening" component={this.renderField('Soir')} />
-          </View>
-        </View>
+        <ClientAdditionForm />
         <View style={theme.buttonContainer}>
-          <FullButton onPress={this.props.handleSubmit} title="Enregistrer" />
+          <FullButton onPress={this.register} title="Enregistrer" />
         </View>
       </Page>
     );
@@ -48,32 +35,11 @@ class ClientAddition extends Component<DispatchProps & NavigationScreenProp, voi
 }
 
 type DispatchProps = {
-  onSubmit: Function,
+  submitForm: Function,
 };
 
-const mapDispatchToProps = (dispatch: Function): DispatchProps => ({
-  onSubmit: values => {
-    Keyboard.dismiss();
-    dispatch(addClient(values));
-  },
-});
+const mapDispatchToProps: DispatchProps = {
+  submitForm,
+};
 
-const enhance = compose(connect(null, mapDispatchToProps), reduxForm({ form: 'clientAddition' }));
-export default enhance(ClientAddition);
-
-const styles = StyleSheet.create({
-  infoContainer: {
-    marginVertical: theme.margin.vertical.small,
-  },
-  slotsContainer: {
-    flexDirection: 'row',
-  },
-  twoSlotsContainer: {
-    width: theme.width.halfPage,
-  },
-  instruction: {
-    fontSize: theme.fontSize.normal,
-    fontWeight: 'bold',
-    marginBottom: theme.margin.vertical.small,
-  },
-});
+export default connect(null, mapDispatchToProps)(ClientAddition);
