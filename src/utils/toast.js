@@ -1,7 +1,7 @@
 import Toast from 'react-native-toast-native';
 
 const style = {
-  height: 70,
+  height: 100,
   width: 350,
   borderRadius: 10,
 };
