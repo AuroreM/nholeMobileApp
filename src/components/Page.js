@@ -1,21 +1,23 @@
 // @flow
 
 import React, { PropTypes } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 export default (props: PropsType) => (
-  <View
-    style={[
-      styles.page,
-      {
-        backgroundColor: props.backgroundColor,
-        paddingHorizontal: 24,
-        paddingTop: 16,
-      },
-    ]}
-  >
-    {props.children}
-  </View>
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <View
+      style={[
+        styles.page,
+        {
+          backgroundColor: props.backgroundColor,
+          paddingHorizontal: 24,
+          paddingTop: 16,
+        },
+      ]}
+    >
+      {props.children}
+    </View>
+  </TouchableWithoutFeedback>
 );
 
 type PropsType = {
