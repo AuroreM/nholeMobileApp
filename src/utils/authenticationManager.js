@@ -14,6 +14,6 @@ export default class AuthenticationTokenManager {
   }
 
   static clear(): Promise<void> {
-    return AsyncStorage.setItem('jwtToken', null);
+    return AsyncStorage.removeItem('jwtToken');
   }
 }
