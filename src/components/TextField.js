@@ -35,7 +35,7 @@ export default TextField;
 const styles = StyleSheet.create({
   textInput: {
     height: theme.height.touchable,
-    color: theme.color.ligthGray,
+    color: theme.color.ligthGrey,
     fontSize: theme.fontSize.normal,
     paddingVertical: theme.padding.vertical.normal,
   },

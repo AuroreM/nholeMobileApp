@@ -4,7 +4,7 @@ export default (title: string, headerLeft: ?boolean = null) => {
   const navigationOptions = {
     title,
     headerStyle: {
-      backgroundColor: theme.color.gray,
+      backgroundColor: theme.color.grey,
       height: theme.height.header,
     },
     headerTitleStyle: {

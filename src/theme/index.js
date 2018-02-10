@@ -12,9 +12,9 @@ export default {
   },
   color: {
     blue: 'rgb(30,144,255)',
-    gray: 'rgb(64,64,64)',
+    grey: 'rgb(64,64,64)',
     red: 'rgb(220, 20, 60)',
-    ligthGray: '#808080',
+    ligthGrey: '#808080',
   },
   margin: {
     modal: 35,

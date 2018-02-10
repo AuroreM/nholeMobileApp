@@ -154,5 +154,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: theme.margin.vertical.normal,
   },
-  modalTitle: { fontSize: theme.fontSize.header, color: theme.color.gray },
+  modalTitle: { fontSize: theme.fontSize.header, color: theme.color.grey },
 });

@@ -27,7 +27,7 @@ export default FullButton;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: theme.color.gray,
+    backgroundColor: theme.color.grey,
     borderRadius: theme.border.radius,
     width: theme.width.touchable,
     height: theme.height.touchable,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.normal,
   },
   secondaryButtonText: {
-    color: theme.color.gray,
+    color: theme.color.grey,
     fontSize: theme.fontSize.normal,
   },
 });

@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   label: {
     opacity: 0.65,
-    color: theme.color.gray,
+    color: theme.color.grey,
     fontSize: theme.fontSize.normal,
     textAlign: 'justify',
     marginLeft: theme.margin.horizontal.normal,
