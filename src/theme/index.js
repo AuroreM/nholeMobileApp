@@ -24,6 +24,7 @@ export default {
     },
     horizontal: {
       normal: 15,
+      small: 5,
     },
   },
   padding: {

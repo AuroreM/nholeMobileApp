@@ -53,7 +53,7 @@ class Client extends React.Component<DispatchProps & StateProps & OwnProps, void
           <View style={styles.modalHeaderContainer}>
             <Text style={styles.modalTitle}>Modifier ce client</Text>
             <TouchableOpacity onPress={this.closeModal}>
-              <Icon name="close" size={20} />
+              <Icon name="close" size={24} />
             </TouchableOpacity>
           </View>
           <ClientAdditionForm initialValues={this.props.client} onSubmitForm={this.props.onSubmitForm} />
@@ -70,12 +70,15 @@ class Client extends React.Component<DispatchProps & StateProps & OwnProps, void
       <View>
         <TouchableOpacity onPress={this.openModal}>
           <View style={this.props.style}>
-            <View style={styles.nameContainer}>
-              <Text style={styles.name}>
-                {this.props.client.firstname} {this.props.client.lastname}
-              </Text>
+            <View style={styles.firstRowContainer}>
+              <View style={styles.nameContainer}>
+                <Text style={styles.name}>
+                  {this.props.client.firstname} {this.props.client.lastname}
+                </Text>
+                <Icon name="edit" size={22} style={styles.editIcon} />
+              </View>
               <TouchableOpacity onPress={this.onDelete}>
-                <Icon name="close" size={24} style={styles.icon} />
+                <Icon name="close" size={24} style={styles.closeIcon} />
               </TouchableOpacity>
             </View>
             <View style={styles.infoContainer}>
@@ -123,11 +126,14 @@ const mapDispatchToProps: DispatchProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Client);
 
 const styles = StyleSheet.create({
-  nameContainer: {
+  firstRowContainer: {
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'space-between',
     marginVertical: theme.margin.vertical.small,
+  },
+  nameContainer: {
+    flexDirection: 'row',
   },
   name: {
     fontSize: theme.fontSize.normal,
@@ -140,8 +146,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: theme.fontSize.small,
   },
-  icon: {
+  closeIcon: {
     color: theme.color.red,
+  },
+  editIcon: {
+    color: theme.color.grey,
+    marginLeft: theme.margin.horizontal.small,
   },
   text: {
     fontSize: theme.fontSize.small,
